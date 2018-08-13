@@ -2,8 +2,8 @@
 
 namespace IP\Providers;
 
-use IP\Support\Directory;
 use Illuminate\Support\ServiceProvider;
+use IP\Support\Directory;
 
 class DashboardWidgetServiceProvider extends ServiceProvider
 {

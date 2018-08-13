@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\Notes\Models\Note;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\Notes\Models\Note;
 
 class NoteCreated extends Event
 {

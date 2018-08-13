@@ -14,9 +14,9 @@
 
 namespace IP\Modules\Invoices\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use IP\Support\CurrencyFormatter;
 use IP\Support\NumberFormatter;
-use Illuminate\Database\Eloquent\Model;
 
 class InvoiceAmount extends Model
 {

@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\Quotes\Models\QuoteItem;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\Quotes\Models\QuoteItem;
 
 class QuoteItemSaving extends Event
 {

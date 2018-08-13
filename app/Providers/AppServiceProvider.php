@@ -2,11 +2,11 @@
 
 namespace IP\Providers;
 
-use IP\Support\Directory;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use IP\Support\Directory;
 
 class AppServiceProvider extends ServiceProvider
 {

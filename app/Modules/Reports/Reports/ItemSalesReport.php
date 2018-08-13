@@ -61,14 +61,20 @@ class ItemSalesReport
 
             if (isset($results['records'][$item->item_name]['totals'])) {
                 $results['records'][$item->item_name]['totals']['quantity'] += $item->quantity;
-                $results['records'][$item->item_name]['totals']['subtotal'] += round($item->subtotal / $item->invoice_exchange_rate, 2);
-                $results['records'][$item->item_name]['totals']['tax'] += round($item->tax / $item->invoice_exchange_rate, 2);
-                $results['records'][$item->item_name]['totals']['total'] += round($item->total / $item->invoice_exchange_rate, 2);
+                $results['records'][$item->item_name]['totals']['subtotal'] += round($item->subtotal / $item->invoice_exchange_rate,
+                    2);
+                $results['records'][$item->item_name]['totals']['tax'] += round($item->tax / $item->invoice_exchange_rate,
+                    2);
+                $results['records'][$item->item_name]['totals']['total'] += round($item->total / $item->invoice_exchange_rate,
+                    2);
             } else {
                 $results['records'][$item->item_name]['totals']['quantity'] = $item->quantity;
-                $results['records'][$item->item_name]['totals']['subtotal'] = round($item->subtotal / $item->invoice_exchange_rate, 2);
-                $results['records'][$item->item_name]['totals']['tax'] = round($item->tax / $item->invoice_exchange_rate, 2);
-                $results['records'][$item->item_name]['totals']['total'] = round($item->total / $item->invoice_exchange_rate, 2);
+                $results['records'][$item->item_name]['totals']['subtotal'] = round($item->subtotal / $item->invoice_exchange_rate,
+                    2);
+                $results['records'][$item->item_name]['totals']['tax'] = round($item->tax / $item->invoice_exchange_rate,
+                    2);
+                $results['records'][$item->item_name]['totals']['total'] = round($item->total / $item->invoice_exchange_rate,
+                    2);
             }
         }
 

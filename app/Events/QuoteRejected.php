@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\Quotes\Models\Quote;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\Quotes\Models\Quote;
 
 class QuoteRejected extends Event
 {

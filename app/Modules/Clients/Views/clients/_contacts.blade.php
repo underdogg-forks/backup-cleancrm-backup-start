@@ -1,32 +1,32 @@
 <script type="text/javascript">
-  $(function () {
-    $('#btn-add-contact').click(function () {
-      $('#modal-placeholder').load('{{ route('clients.contacts.create', [$clientId]) }}');
-    });
-
-    $('.btn-edit-contact').click(function () {
-      $('#modal-placeholder').load($(this).data('url'));
-    });
-
-    $('.btn-delete-contact').click(function () {
-      if (confirm('@lang('ip.delete_record_warning')')) {
-        $.post('{{ route('clients.contacts.delete', [$clientId]) }}', {
-          id: $(this).data('contact-id')
-        }).done(function (response) {
-          $('#tab-contacts').html(response);
+    $(function () {
+        $('#btn-add-contact').click(function () {
+            $('#modal-placeholder').load('{{ route('clients.contacts.create', [$clientId]) }}');
         });
-      }
-    });
 
-    $('.update-default').click(function () {
-      $.post('{{ route('clients.contacts.updateDefault', [$clientId]) }}', {
-        id: $(this).data('contact-id'),
-        default: $(this).data('default')
-      }).done(function (response) {
-        $('#tab-contacts').html(response);
-      });
+        $('.btn-edit-contact').click(function () {
+            $('#modal-placeholder').load($(this).data('url'));
+        });
+
+        $('.btn-delete-contact').click(function () {
+            if (confirm('@lang('ip.delete_record_warning')')) {
+                $.post('{{ route('clients.contacts.delete', [$clientId]) }}', {
+                    id: $(this).data('contact-id')
+                }).done(function (response) {
+                    $('#tab-contacts').html(response);
+                });
+            }
+        });
+
+        $('.update-default').click(function () {
+            $.post('{{ route('clients.contacts.updateDefault', [$clientId]) }}', {
+                id: $(this).data('contact-id'),
+                default: $(this).data('default')
+            }).done(function (response) {
+                $('#tab-contacts').html(response);
+            });
+        });
     });
-  });
 </script>
 
 <div class="row">

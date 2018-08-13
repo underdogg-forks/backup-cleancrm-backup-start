@@ -1,34 +1,34 @@
 @section('javascript')
     @parent
     <script type="text/javascript">
-      $(function () {
+        $(function () {
 
-        $('#mailPassword').val('');
+            $('#mailPassword').val('');
 
-        updateEmailOptions();
+            updateEmailOptions();
 
-        $('#mailDriver').change(function () {
-          updateEmailOptions();
+            $('#mailDriver').change(function () {
+                updateEmailOptions();
+            });
+
+            function updateEmailOptions() {
+
+                $('.email-option').hide();
+
+                mailDriver = $('#mailDriver').val();
+
+                if (mailDriver == 'smtp') {
+                    $('.smtp-option').show();
+                }
+                else if (mailDriver == 'sendmail') {
+                    $('.sendmail-option').show();
+                }
+                else if (mailDriver == 'mail') {
+                    $('.phpmail-option').show();
+                }
+            }
+
         });
-
-        function updateEmailOptions () {
-
-          $('.email-option').hide();
-
-          mailDriver = $('#mailDriver').val();
-
-          if (mailDriver == 'smtp') {
-            $('.smtp-option').show();
-          }
-          else if (mailDriver == 'sendmail') {
-            $('.sendmail-option').show();
-          }
-          else if (mailDriver == 'mail') {
-            $('.phpmail-option').show();
-          }
-        }
-
-      });
     </script>
 @stop
 

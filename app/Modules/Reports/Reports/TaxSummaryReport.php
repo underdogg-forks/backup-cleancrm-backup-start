@@ -56,7 +56,8 @@ class TaxSummaryReport
         foreach ($invoices as $invoice) {
             foreach ($invoice->items as $invoiceItem) {
                 if ($invoiceItem->tax_rate_id) {
-                    $key = $invoiceItem->taxRate->name . ' (' . NumberFormatter::format($invoiceItem->taxRate->percent, null, 3) . '%)';
+                    $key = $invoiceItem->taxRate->name . ' (' . NumberFormatter::format($invoiceItem->taxRate->percent,
+                            null, 3) . '%)';
 
                     if (isset($results['records'][$key]['taxable_amount'])) {
                         $results['records'][$key]['taxable_amount'] += $invoiceItem->amount->subtotal / $invoice->exchange_rate;
@@ -68,7 +69,8 @@ class TaxSummaryReport
                 }
 
                 if ($invoiceItem->tax_rate_2_id) {
-                    $key = $invoiceItem->taxRate2->name . ' (' . NumberFormatter::format($invoiceItem->taxRate2->percent, null, 3) . '%)';
+                    $key = $invoiceItem->taxRate2->name . ' (' . NumberFormatter::format($invoiceItem->taxRate2->percent,
+                            null, 3) . '%)';
 
                     if (isset($results['records'][$key]['taxable_amount'])) {
                         if ($invoiceItem->taxRate2->is_compound) {

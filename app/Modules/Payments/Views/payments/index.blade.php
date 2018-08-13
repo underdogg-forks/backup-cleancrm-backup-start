@@ -3,34 +3,34 @@
 @section('javascript')
     <script type="text/javascript">
 
-      $(function () {
+        $(function () {
 
-        $('.email-payment-receipt').click(function () {
-          $('#modal-placeholder').load("{{ route('paymentMail.create') }}", {
-            payment_id: $(this).data('payment-id'),
-            redirectTo: $(this).data('redirect-to')
-          });
-        });
-
-        $('#btn-bulk-delete').click(function () {
-
-          var ids = [];
-
-          $('.bulk-record:checked').each(function () {
-            ids.push($(this).data('id'));
-          });
-
-          if (ids.length > 0) {
-            if (!confirm('{!! trans('ip.bulk_delete_record_warning') !!}')) return false;
-            $.post("{{ route('payments.bulk.delete') }}", {
-              ids: ids
-            }).done(function () {
-              window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
+            $('.email-payment-receipt').click(function () {
+                $('#modal-placeholder').load("{{ route('paymentMail.create') }}", {
+                    payment_id: $(this).data('payment-id'),
+                    redirectTo: $(this).data('redirect-to')
+                });
             });
-          }
-        });
 
-      });
+            $('#btn-bulk-delete').click(function () {
+
+                var ids = [];
+
+                $('.bulk-record:checked').each(function () {
+                    ids.push($(this).data('id'));
+                });
+
+                if (ids.length > 0) {
+                    if (!confirm('{!! trans('ip.bulk_delete_record_warning') !!}')) return false;
+                    $.post("{{ route('payments.bulk.delete') }}", {
+                        ids: ids
+                    }).done(function () {
+                        window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
+                    });
+                }
+            });
+
+        });
 
     </script>
 @stop

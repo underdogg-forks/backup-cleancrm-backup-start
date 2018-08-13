@@ -14,6 +14,9 @@
 
 namespace IP\Modules\Setup\Controllers;
 
+use Illuminate\Encryption\Encrypter;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use IP\Http\Controllers\Controller;
 use IP\Modules\CompanyProfiles\Models\CompanyProfile;
 use IP\Modules\Settings\Models\Setting;
@@ -21,9 +24,6 @@ use IP\Modules\Setup\Requests\DBRequest;
 use IP\Modules\Setup\Requests\ProfileRequest;
 use IP\Modules\Users\Models\User;
 use IP\Support\Migrations;
-use Illuminate\Encryption\Encrypter;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
 class SetupController extends Controller
 {
@@ -68,6 +68,23 @@ class SetupController extends Controller
 
         return view('setup.prerequisites')
             ->with('errors', $errors);
+    }
+
+    /**
+     * Write values to the .env file base on an key => value array
+     *
+     * @param array $data
+     */
+    private function writeEnv(array $data)
+    {
+        $config = file_get_contents(base_path('.env'));
+
+        foreach ($data as $key => $value) {
+            $key = strtoupper($key);
+            $config = preg_replace("/$key=(.*)?/", "$key=" . $value, $config);
+        }
+
+        Storage::disk('base')->put('.env', $config);
     }
 
     /**
@@ -150,22 +167,5 @@ class SetupController extends Controller
     public function complete()
     {
         return view('setup.complete');
-    }
-
-    /**
-     * Write values to the .env file base on an key => value array
-     *
-     * @param array $data
-     */
-    private function writeEnv(array $data)
-    {
-        $config = file_get_contents(base_path('.env'));
-
-        foreach ($data as $key => $value) {
-            $key = strtoupper($key);
-            $config = preg_replace("/$key=(.*)?/", "$key=" . $value, $config);
-        }
-
-        Storage::disk('base')->put('.env', $config);
     }
 }

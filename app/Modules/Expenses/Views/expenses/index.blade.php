@@ -2,36 +2,36 @@
 
 @section('javascript')
     <script type="text/javascript">
-      $(function () {
-        $('.btn-bill-expense').click(function () {
-          $('#modal-placeholder').load("{{ route('expenseBill.create') }}", {
-            id: $(this).data('expense-id'),
-            redirectTo: '{{ request()->fullUrl() }}'
-          });
-        });
-
-        $('.expense_filter_options').change(function () {
-          $('form#filter').submit();
-        });
-
-        $('#btn-bulk-delete').click(function () {
-
-          var ids = [];
-
-          $('.bulk-record:checked').each(function () {
-            ids.push($(this).data('id'));
-          });
-
-          if (ids.length > 0) {
-            if (!confirm('{!! trans('ip.bulk_delete_record_warning') !!}')) return false;
-            $.post("{{ route('expenses.bulk.delete') }}", {
-              ids: ids
-            }).done(function () {
-              window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
+        $(function () {
+            $('.btn-bill-expense').click(function () {
+                $('#modal-placeholder').load("{{ route('expenseBill.create') }}", {
+                    id: $(this).data('expense-id'),
+                    redirectTo: '{{ request()->fullUrl() }}'
+                });
             });
-          }
+
+            $('.expense_filter_options').change(function () {
+                $('form#filter').submit();
+            });
+
+            $('#btn-bulk-delete').click(function () {
+
+                var ids = [];
+
+                $('.bulk-record:checked').each(function () {
+                    ids.push($(this).data('id'));
+                });
+
+                if (ids.length > 0) {
+                    if (!confirm('{!! trans('ip.bulk_delete_record_warning') !!}')) return false;
+                    $.post("{{ route('expenses.bulk.delete') }}", {
+                        ids: ids
+                    }).done(function () {
+                        window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
+                    });
+                }
+            });
         });
-      });
     </script>
 @stop
 

@@ -4,8 +4,7 @@
     </button>
     <a href="{{ route('dashboard.index')}}" class="navbar-brand">
         <span class="navbar-brand-full">{{ config('fi.headerTitleText') }}</span>
-        <img src="{{ asset('assets/img/ip_logo_1x1.svg') }}" alt="{{ config('fi.headerTitleText') }}"
-                class="navbar-brand-minimized">
+        &nbsp;
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
@@ -13,7 +12,7 @@
     <ul class="nav navbar-nav ml-auto d-md-down-none">
         <li class="nav-item dropdown px-3">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 @lang('ip.settings')
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -39,7 +38,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle pr-3" data-toggle="dropdown" href="#" role="button"
-                    aria-haspopup="true" aria-expanded="false">
+               aria-haspopup="true" aria-expanded="false">
                 @if (config('fi.displayProfileImage'))
                     <img src="{{ $profileImageUrl }}" alt="User Image"/>
                 @else

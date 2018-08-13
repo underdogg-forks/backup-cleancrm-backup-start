@@ -6,7 +6,7 @@
                     <form class="form-inline" action="{{ request()->fullUrl() }}" method="get">
                         <input type="hidden" name="status" value="{{ request('status') }}"/>
                         <input type="text" name="search" class="form-control mr-sm-2"
-                                placeholder="@lang('ip.search')..."/>
+                               placeholder="@lang('ip.search')..."/>
                         <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
@@ -30,7 +30,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link"
-                        href="{{ route('invoices.index', ['status' => config('fi.invoiceStatusFilter')]) }}">
+                   href="{{ route('invoices.index', ['status' => config('fi.invoiceStatusFilter')]) }}">
                     <i class="nav-icon fa fa-file-text"></i> <span>@lang('ip.invoices')</span>
                 </a>
             </li>

@@ -12,7 +12,8 @@ class WidgetServiceProvider extends ServiceProvider
         view()->addLocation(app_path('Widgets/Dashboard/ClientActivity/Views'));
 
         // Register the widget view composer.
-        view()->composer('ClientActivityWidget', 'IP\Widgets\Dashboard\ClientActivity\Composers\ClientActivityWidgetComposer');
+        view()->composer('ClientActivityWidget',
+            'IP\Widgets\Dashboard\ClientActivity\Composers\ClientActivityWidgetComposer');
     }
 
     public function register()

@@ -2,11 +2,11 @@
 
 @section('javascript')
     <script type="text/javascript">
-      $(function () {
-        $('.user_filter_options').change(function () {
-          $('form#filter').submit();
+        $(function () {
+            $('.user_filter_options').change(function () {
+                $('form#filter').submit();
+            });
         });
-      });
     </script>
 @stop
 

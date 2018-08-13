@@ -8,19 +8,19 @@ module.exports = function (grunt) {
 
   grunt.config('clean', {
     styles: [
-      'assets/dist/*.css', 'assets/dist/*.css.map' // CSS
+      'public/assets/dist/*.css', 'public/assets/dist/*.css.map' // CSS
     ],
     js: [
-      'assets/dist/*.js', 'assets/dist/*.js.map' // Javascript
+      'public/assets/dist/*.js', 'public/assets/dist/*.js.map' // Javascript
     ],
     fonts: [
-      'assets/dist/fonts/**/*.*', '!assets/dist/fonts/.gitignore' // Font Awesome + Ionicons
+      'public/assets/dist/fonts/**/*.*', '!assets/dist/fonts/.gitignore' // Font Awesome + Ionicons
     ],
     third_party: [
-      'assets/dist/bs-datepicker/**/*.*', '!assets/dist/bs-datepicker/.gitignore', // Bootstrap Datepicker
-      'assets/dist/chosen-js/**/*.*', '!assets/dist/chosen-js/.gitignore', // Chosen JS
-      'assets/dist/daterangepicker/**/*.*', '!assets/dist/daterangepicker/.gitignore', // Chosen JS
-      'assets/dist/typeahead/**/*.*', '!assets/dist/typeahead/.gitignore', // Typeahead JS
+      'public/assets/dist/bs-datepicker/**/*.*', '!assets/dist/bs-datepicker/.gitignore', // Bootstrap Datepicker
+      'public/assets/dist/chosen-js/**/*.*', '!assets/dist/chosen-js/.gitignore', // Chosen JS
+      'public/assets/dist/daterangepicker/**/*.*', '!assets/dist/daterangepicker/.gitignore', // Chosen JS
+      'public/assets/dist/typeahead/**/*.*', '!assets/dist/typeahead/.gitignore', // Typeahead JS
     ]
   });
 
@@ -31,8 +31,8 @@ module.exports = function (grunt) {
         sourceMap: true
       },
       files: {
-        'assets/dist/app.css': 'resources/assets/sass/app.scss',
-        'assets/dist/adminlte/css/skins/skin-invoiceplane.min.css': 'resources/assets/sass/skin-invoiceplane.scss'
+        'public/assets/dist/app.css': 'resources/assets/sass/app.scss',
+        'public/assets/dist/adminlte/css/skins/skin-invoiceplane.min.css': 'resources/assets/sass/skin-invoiceplane.scss'
       }
     },
     build: {
@@ -41,8 +41,8 @@ module.exports = function (grunt) {
         sourceMap: false
       },
       files: {
-        'assets/dist/app.css': 'resources/assets/sass/app.scss',
-        'assets/dist/adminlte/css/skins/skin-invoiceplane.min.css': 'resources/assets/sass/skin-invoiceplane.scss'
+        'public/assets/dist/app.css': 'resources/assets/sass/app.scss',
+        'public/assets/dist/adminlte/css/skins/skin-invoiceplane.min.css': 'resources/assets/sass/skin-invoiceplane.scss'
       }
     }
   });
@@ -58,7 +58,7 @@ module.exports = function (grunt) {
         ]
       },
       src: [
-        'assets/dist/*.css'
+        'public/assets/dist/*.css'
       ]
     },
     build: {
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
         ]
       },
       src: [
-        'assets/dist/*.css'
+        'public/assets/dist/*.css'
       ]
     }
   });
@@ -88,14 +88,14 @@ module.exports = function (grunt) {
         'node_modules/bootstrap-notify/bootstrap-notify.js',
         'node_modules/jquery-slimscroll/jquery.slimscroll.js'
       ],
-      dest: 'assets/dist/dependencies.js'
+      dest: 'public/assets/dist/dependencies.js'
     }
   });
 
   grunt.config('uglify', {
     js_dependencies: {
       files: {
-        'assets/dist/dependencies.js': ['assets/dist/dependencies.js']
+        'public/assets/dist/dependencies.js': ['public/assets/dist/dependencies.js']
       }
     }
   });
@@ -105,37 +105,37 @@ module.exports = function (grunt) {
       expand: true,
       flatten: true,
       src: ['node_modules/font-awesome/fonts/*'],
-      dest: 'assets/dist/fonts/'
+      dest: 'public/assets/dist/fonts/'
     },
     ionicons: {
       expand: true,
       flatten: true,
       src: ['node_modules/ionicons/dist/fonts/*'],
-      dest: 'assets/dist/fonts/'
+      dest: 'public/assets/dist/fonts/'
     },
     chosen_js: {
       expand: true,
       cwd: 'node_modules/chosen-js',
       src: ['chosen.css', 'chosen.jquery.js', '*.png'],
-      dest: 'assets/dist/chosen-js/'
+      dest: 'public/assets/dist/chosen-js/'
     },
     bs_datepicker: {
       expand: true,
       cwd: 'node_modules/bootstrap-datepicker/dist',
       src: ['locales/*.js', 'js/bootstrap-datepicker.min.js', 'css/bootstrap-datepicker3.min.css'],
-      dest: 'assets/dist/bs-datepicker/'
+      dest: 'public/assets/dist/bs-datepicker/'
     },
     daterangepicker: {
       expand: true,
       cwd: 'node_modules/daterangepicker/',
       src: ['daterangepicker.css', 'daterangepicker.js'],
-      dest: 'assets/dist/daterangepicker/'
+      dest: 'public/assets/dist/daterangepicker/'
     },
     typeahead: {
       expand: true,
       cwd: 'node_modules/typeahead.js/dist/',
       src: ['typeahead.bundle.min.js'],
-      dest: 'assets/dist/typeahead/'
+      dest: 'public/assets/dist/typeahead/'
     }
   });
 

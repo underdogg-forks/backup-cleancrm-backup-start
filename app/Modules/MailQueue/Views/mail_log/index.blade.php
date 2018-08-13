@@ -2,13 +2,13 @@
 
 @section('javascript')
     <script type="text/javascript">
-      $(function () {
-        $('.btn-show-content').click(function () {
-          $('#modal-placeholder').load('{{ route('mailLog.content') }}', {
-            id: $(this).data('id')
-          });
+        $(function () {
+            $('.btn-show-content').click(function () {
+                $('#modal-placeholder').load('{{ route('mailLog.content') }}', {
+                    id: $(this).data('id')
+                });
+            });
         });
-      });
     </script>
 @stop
 

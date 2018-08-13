@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\CustomFields\Models\ClientCustom;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\CustomFields\Models\ClientCustom;
 
 class ClientCustomCreating extends Event
 {

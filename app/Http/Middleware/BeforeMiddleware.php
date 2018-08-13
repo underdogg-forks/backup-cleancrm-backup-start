@@ -3,11 +3,11 @@
 namespace IP\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
 use IP\Modules\Currencies\Models\Currency;
 use IP\Modules\Settings\Models\Setting;
 use IP\Support\DateFormatter;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\DB;
 
 class BeforeMiddleware
 {
@@ -15,7 +15,7 @@ class BeforeMiddleware
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
+     * @param  \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
@@ -43,7 +43,8 @@ class BeforeMiddleware
                 $mailPassword = (config('fi.mailPassword')) ? Crypt::decrypt(config('fi.mailPassword')) : '';
             } catch (\Exception $e) {
                 if (config('fi.mailDriver') == 'smtp') {
-                    session()->flash('error', '<strong>' . trans('ip.error') . '</strong> - ' . trans('ip.mail_hash_error'));
+                    session()->flash('error',
+                        '<strong>' . trans('ip.error') . '</strong> - ' . trans('ip.mail_hash_error'));
                 }
             }
 

@@ -44,7 +44,9 @@ class Migrations
     {
         $files = File::glob($path . '/*_*.php');
 
-        if ($files === false) return [];
+        if ($files === false) {
+            return [];
+        }
 
         $files = array_map(function ($file) {
             return str_replace('.php', '', basename($file));

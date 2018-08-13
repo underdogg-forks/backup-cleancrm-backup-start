@@ -33,12 +33,15 @@ class Contacts
         $allContacts = $this->getAllContacts();
         $selectedContacts = $this->getSelectedContactsTo();
 
-        return FormFacade::select('to', $allContacts, $selectedContacts, ['id' => 'to', 'multiple' => 'multiple', 'class' => 'form-control']);
+        return FormFacade::select('to', $allContacts, $selectedContacts,
+            ['id' => 'to', 'multiple' => 'multiple', 'class' => 'form-control']);
     }
 
     private function getAllContacts()
     {
-        $contacts = ($this->client->email) ? [$this->client->email => $this->getFormattedContact($this->client->name, $this->client->email)] : [];
+        $contacts = ($this->client->email) ? [
+            $this->client->email => $this->getFormattedContact($this->client->name, $this->client->email)
+        ] : [];
 
         foreach ($this->client->contacts->pluck('name', 'email') as $email => $name) {
             $contacts[$email] = $this->getFormattedContact($name, $email);
@@ -72,7 +75,8 @@ class Contacts
         $allContacts = $this->getAllContacts();
         $selectedContacts = $this->getSelectedContactsCc();
 
-        return FormFacade::select('cc', $allContacts, $selectedContacts, ['id' => 'cc', 'multiple' => 'multiple', 'class' => 'form-control']);
+        return FormFacade::select('cc', $allContacts, $selectedContacts,
+            ['id' => 'cc', 'multiple' => 'multiple', 'class' => 'form-control']);
     }
 
     public function getSelectedContactsCc()
@@ -94,7 +98,8 @@ class Contacts
         $allContacts = $this->getAllContacts();
         $selectedContacts = $this->getSelectedContactsBcc();
 
-        return FormFacade::select('bcc', $allContacts, $selectedContacts, ['id' => 'bcc', 'multiple' => 'multiple', 'class' => 'form-control']);
+        return FormFacade::select('bcc', $allContacts, $selectedContacts,
+            ['id' => 'bcc', 'multiple' => 'multiple', 'class' => 'form-control']);
     }
 
     public function getSelectedContactsBcc()

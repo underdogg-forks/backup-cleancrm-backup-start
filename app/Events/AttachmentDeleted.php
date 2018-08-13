@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\Attachments\Models\Attachment;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\Attachments\Models\Attachment;
 
 class AttachmentDeleted extends Event
 {

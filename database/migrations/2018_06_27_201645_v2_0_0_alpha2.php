@@ -623,28 +623,28 @@ class V200Alpha2 extends Migration
 
         // Add basic voucher groups
         DB::table('groups')->insert([
-                'name' => trans('ip.invoice_default'),
-                'next_id' => 1,
-                'left_pad' => 0,
-                'format' => 'INV{NUMBER}',
-                'reset_number' => 0,
-                'last_id' => 0,
-                'last_year' => 0,
-                'last_month' => 0,
-                'last_week' => 0,
-            ]);
+            'name' => trans('ip.invoice_default'),
+            'next_id' => 1,
+            'left_pad' => 0,
+            'format' => 'INV{NUMBER}',
+            'reset_number' => 0,
+            'last_id' => 0,
+            'last_year' => 0,
+            'last_month' => 0,
+            'last_week' => 0,
+        ]);
 
         DB::table('groups')->insert([
-                'name' => trans('ip.quote_default'),
-                'next_id' => 1,
-                'left_pad' => 0,
-                'format' => 'QUO{NUMBER}',
-                'reset_number' => 0,
-                'last_id' => 0,
-                'last_year' => 0,
-                'last_month' => 0,
-                'last_week' => 0,
-            ]);
+            'name' => trans('ip.quote_default'),
+            'next_id' => 1,
+            'left_pad' => 0,
+            'format' => 'QUO{NUMBER}',
+            'reset_number' => 0,
+            'last_id' => 0,
+            'last_year' => 0,
+            'last_month' => 0,
+            'last_week' => 0,
+        ]);
 
         // Add base settings
         $settings = [

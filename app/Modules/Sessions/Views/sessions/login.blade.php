@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <input type="email" name="email" id="email" class="form-control"
-                                placeholder="@lang('ip.email')">
+                               placeholder="@lang('ip.email')">
                     </div>
 
                     <div class="input-group mb-4">

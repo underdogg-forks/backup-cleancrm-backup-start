@@ -2,9 +2,9 @@
 
 namespace IP\Providers;
 
-use IP\Modules\Addons\Models\Addon;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
+use IP\Modules\Addons\Models\Addon;
 
 class AddonServiceProvider extends ServiceProvider
 {

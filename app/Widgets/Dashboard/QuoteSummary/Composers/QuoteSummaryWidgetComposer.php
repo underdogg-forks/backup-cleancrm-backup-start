@@ -2,9 +2,9 @@
 
 namespace IP\Widgets\Dashboard\QuoteSummary\Composers;
 
+use Illuminate\Support\Facades\DB;
 use IP\Modules\Quotes\Models\QuoteAmount;
 use IP\Support\CurrencyFormatter;
-use Illuminate\Support\Facades\DB;
 
 class QuoteSummaryWidgetComposer
 {
@@ -31,7 +31,8 @@ class QuoteSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'), config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'),
+                            config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));
@@ -51,7 +52,8 @@ class QuoteSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'), config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'),
+                            config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));
@@ -71,7 +73,8 @@ class QuoteSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'), config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'),
+                            config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));
@@ -91,7 +94,8 @@ class QuoteSummaryWidgetComposer
                         $q->thisQuarter();
                         break;
                     case 'custom_date_range':
-                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'), config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
+                        $q->dateRange(config('fi.widgetQuoteSummaryDashboardTotalsFromDate'),
+                            config('fi.widgetQuoteSummaryDashboardTotalsToDate'));
                         break;
                 }
             })->sum(DB::raw('total / exchange_rate')));

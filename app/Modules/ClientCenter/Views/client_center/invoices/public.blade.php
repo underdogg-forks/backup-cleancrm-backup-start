@@ -5,31 +5,31 @@
     <script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
 
     <script type="text/javascript">
-      $(function () {
-        $('#view-notes').hide();
-        $('.btn-notes').click(function () {
-          $('#view-doc').toggle();
-          $('#view-notes').toggle();
-          $('#' + $(this).data('button-toggle')).show();
-          $(this).hide();
-        });
+        $(function () {
+            $('#view-notes').hide();
+            $('.btn-notes').click(function () {
+                $('#view-doc').toggle();
+                $('#view-notes').toggle();
+                $('#' + $(this).data('button-toggle')).show();
+                $(this).hide();
+            });
 
-        $('.btn-pay').click(function () {
-          var $btn = $(this).button('loading');
+            $('.btn-pay').click(function () {
+                var $btn = $(this).button('loading');
 
-          $.post("{{ route('merchant.pay') }}", {
-            driver: $(this).data('driver'),
-            urlKey: '{{ $invoice->url_key }}'
-          }).done(function (response) {
-            if (response.redirect == 1) {
-              window.location = response.url;
-            }
-            else {
-              $('#modal-placeholder').html(response.modalContent);
-            }
-          });
+                $.post("{{ route('merchant.pay') }}", {
+                    driver: $(this).data('driver'),
+                    urlKey: '{{ $invoice->url_key }}'
+                }).done(function (response) {
+                    if (response.redirect == 1) {
+                        window.location = response.url;
+                    }
+                    else {
+                        $('#modal-placeholder').html(response.modalContent);
+                    }
+                });
+            });
         });
-      });
     </script>
 @stop
 

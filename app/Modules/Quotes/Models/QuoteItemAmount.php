@@ -14,8 +14,8 @@
 
 namespace IP\Modules\Quotes\Models;
 
-use IP\Support\CurrencyFormatter;
 use Illuminate\Database\Eloquent\Model;
+use IP\Support\CurrencyFormatter;
 
 class QuoteItemAmount extends Model
 {

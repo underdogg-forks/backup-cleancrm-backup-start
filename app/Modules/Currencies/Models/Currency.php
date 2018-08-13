@@ -14,11 +14,11 @@
 
 namespace IP\Modules\Currencies\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use IP\Modules\Clients\Models\Client;
 use IP\Modules\Invoices\Models\Invoice;
 use IP\Modules\Quotes\Models\Quote;
 use IP\Traits\Sortable;
-use Illuminate\Database\Eloquent\Model;
 
 class Currency extends Model
 {
