@@ -9,6 +9,7 @@
 
 </div>
 
+{{--
 @foreach ($dashboardWidgets as $widget)
 
     <h4 style="font-weight: bold; clear: both;">{{ $widget }}</h4>
@@ -43,4 +44,4 @@
         @include($widget . 'WidgetSettings')
     @endif
 
-@endforeach
+@endforeach--}}

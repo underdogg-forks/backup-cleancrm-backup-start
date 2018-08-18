@@ -4,8 +4,8 @@
     </button>
     <a href="{{ route('dashboard.index')}}" class="navbar-brand">
         <span class="navbar-brand-full">{{ config('fi.headerTitleText') }}</span>
-        <img src="{{ asset('assets/img/ip_logo_1x1.svg') }}" alt="{{ config('fi.headerTitleText') }}"
-                class="navbar-brand-minimized">
+        {{--<img src="{{ asset('assets/img/ip_logo_1x1.svg') }}" alt="{{ config('fi.headerTitleText') }}"
+                class="navbar-brand-minimized">--}}
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
