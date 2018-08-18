@@ -1,7 +1,8 @@
 <div class="sidebar">
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
     <nav class="sidebar-nav">
         <ul class="nav">
-            @if (isset($displaySearch) and $displaySearch == true)
+            {{--@if (isset($displaySearch) and $displaySearch == true)
                 <li class="nav-item">
                     <form class="form-inline" action="{{ request()->fullUrl() }}" method="get">
                         <input type="hidden" name="status" value="{{ request('status') }}"/>
@@ -12,7 +13,7 @@
                         </button>
                     </form>
                 </li>
-            @endif
+            @endif--}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard.index') }}">
                     <i class="nav-icon fa fa-dashboard"></i> <span>@lang('ip.dashboard')</span>
