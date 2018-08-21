@@ -19,8 +19,8 @@ class NumberFormatter
     /**
      * Formats a number accordingly.
      *
-     * @param  float   $number
-     * @param  object  $currency
+     * @param  float $number
+     * @param  object $currency
      * @param  integer $decimalPlaces
      * @return float
      */
@@ -35,7 +35,7 @@ class NumberFormatter
     /**
      * Unformats a formatted number.
      *
-     * @param  float  $number
+     * @param  float $number
      * @param  object $currency
      * @return float
      */

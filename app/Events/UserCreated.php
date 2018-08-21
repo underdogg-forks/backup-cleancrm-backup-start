@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\Users\Models\User;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\Users\Models\User;
 
 class UserCreated extends Event
 {

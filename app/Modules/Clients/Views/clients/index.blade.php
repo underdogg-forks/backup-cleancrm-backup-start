@@ -2,25 +2,25 @@
 
 @section('javascript')
     <script type="text/javascript">
-      $(function () {
-        $('#btn-bulk-delete').click(function () {
+        $(function () {
+            $('#btn-bulk-delete').click(function () {
 
-          var ids = [];
+                var ids = [];
 
-          $('.bulk-record:checked').each(function () {
-            ids.push($(this).data('id'));
-          });
+                $('.bulk-record:checked').each(function () {
+                    ids.push($(this).data('id'));
+                });
 
-          if (ids.length > 0) {
-            if (!confirm('{!! trans('ip.delete_client_warning') !!}')) return false;
-            $.post("{{ route('clients.bulk.delete') }}", {
-              ids: ids
-            }).done(function () {
-              window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
+                if (ids.length > 0) {
+                    if (!confirm('{!! trans('ip.delete_client_warning') !!}')) return false;
+                    $.post("{{ route('clients.bulk.delete') }}", {
+                        ids: ids
+                    }).done(function () {
+                        window.location = decodeURIComponent("{{ urlencode(request()->fullUrl()) }}");
+                    });
+                }
             });
-          }
         });
-      });
     </script>
 @stop
 

@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\Payments\Models\Payment;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\Payments\Models\Payment;
 
 class PaymentCreating extends Event
 {

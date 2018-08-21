@@ -2,9 +2,9 @@
 
 namespace IP\Events;
 
+use Illuminate\Queue\SerializesModels;
 use IP\Modules\Invoices\Models\Invoice;
 use IP\Modules\MailQueue\Models\MailQueue;
-use Illuminate\Queue\SerializesModels;
 
 class OverdueNoticeEmailed extends Event
 {

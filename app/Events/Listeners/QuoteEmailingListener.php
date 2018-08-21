@@ -11,7 +11,8 @@ class QuoteEmailingListener
     {
         if (config('fi.resetQuoteDateEmailDraft') and $event->quote->status_text == 'draft') {
             $event->quote->quote_date = date('Y-m-d');
-            $event->quote->expires_at = DateFormatter::incrementDateByDays(date('Y-m-d'), config('fi.quotesExpireAfter'));
+            $event->quote->expires_at = DateFormatter::incrementDateByDays(date('Y-m-d'),
+                config('fi.quotesExpireAfter'));
             $event->quote->save();
         }
     }

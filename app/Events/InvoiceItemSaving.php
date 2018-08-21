@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\Invoices\Models\InvoiceItem;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\Invoices\Models\InvoiceItem;
 
 class InvoiceItemSaving extends Event
 {

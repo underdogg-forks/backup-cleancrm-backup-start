@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\CompanyProfiles\Models\CompanyProfile;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\CompanyProfiles\Models\CompanyProfile;
 
 class CompanyProfileSaving extends Event
 {

@@ -14,10 +14,10 @@
 
 namespace IP\Modules\Attachments\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use IP\Events\AttachmentCreating;
 use IP\Events\AttachmentDeleted;
 use IP\Support\DateFormatter;
-use Illuminate\Database\Eloquent\Model;
 
 class Attachment extends Model
 {

@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\Clients\Models\Client;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\Clients\Models\Client;
 
 class ClientDeleted extends Event
 {

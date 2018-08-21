@@ -2,28 +2,28 @@
 
 <div id="quote-dashboard-totals-widget">
     <script type="text/javascript">
-      $(function () {
-        $('.quote-dashboard-total-change-option').click(function () {
-          var option = $(this).data('id');
+        $(function () {
+            $('.quote-dashboard-total-change-option').click(function () {
+                var option = $(this).data('id');
 
-          $.post("{{ route('widgets.dashboard.quoteSummary.renderPartial') }}", {
-            widgetQuoteSummaryDashboardTotals: option,
-            widgetQuoteSummaryDashboardTotalsFromDate: $('#quote-dashboard-total-setting-from-date').val(),
-            widgetQuoteSummaryDashboardTotalsToDate: $('#quote-dashboard-total-setting-to-date').val()
-          }, function (data) {
-            $('#quote-dashboard-totals-widget').html(data);
-          });
-        });
+                $.post("{{ route('widgets.dashboard.quoteSummary.renderPartial') }}", {
+                    widgetQuoteSummaryDashboardTotals: option,
+                    widgetQuoteSummaryDashboardTotalsFromDate: $('#quote-dashboard-total-setting-from-date').val(),
+                    widgetQuoteSummaryDashboardTotalsToDate: $('#quote-dashboard-total-setting-to-date').val()
+                }, function (data) {
+                    $('#quote-dashboard-totals-widget').html(data);
+                });
+            });
 
-        $('#quote-dashboard-total-setting-from-date').datepicker({
-          format: 'yyyy-mm-dd',
-          autoclose: true
+            $('#quote-dashboard-total-setting-from-date').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true
+            });
+            $('#quote-dashboard-total-setting-to-date').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true
+            });
         });
-        $('#quote-dashboard-total-setting-to-date').datepicker({
-          format: 'yyyy-mm-dd',
-          autoclose: true
-        });
-      });
     </script>
 
     <div class="card">
@@ -35,7 +35,7 @@
                 <span class="text-muted mr-2">{{ $quoteDashboardTotalOptions[config('fi.widgetQuoteSummaryDashboardTotals')] }}</span>
                 <div class="dropdown d-inline-block">
                     <span class="clickable text-muted dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                          aria-haspopup="true" aria-expanded="false">
                          <i class="fa fa-cog"></i>
                     </span>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -46,13 +46,13 @@
                             <li>
                                 @if ($key === 'custom_date_range')
                                     <a href="#" onclick="return false;" class="dropdown-item" data-toggle="modal"
-                                            data-target="#quote-summary-widget-modal">
+                                       data-target="#quote-summary-widget-modal">
                                         {{ $option }}
                                     </a>
                                 @else
                                     <a href="#" onclick="return false;"
-                                            class="dropdown-item quote-dashboard-total-change-option"
-                                            data-id="{{ $key }}">
+                                       class="dropdown-item quote-dashboard-total-change-option"
+                                       data-id="{{ $key }}">
                                         {{ $option }}
                                     </a>
                                 @endif

@@ -3,17 +3,17 @@
 @section('content')
 
     <script type="text/javascript">
-      $(function () {
-        $('#name').focus();
+        $(function () {
+            $('#name').focus();
 
-          @if ($editMode == true)
-          $('#btn-delete-logo').click(function () {
-            $.post("{{ route('companyProfiles.deleteLogo', [$companyProfile->id]) }}").done(function () {
-              $('#div-logo').html('');
+            @if ($editMode == true)
+            $('#btn-delete-logo').click(function () {
+                $.post("{{ route('companyProfiles.deleteLogo', [$companyProfile->id]) }}").done(function () {
+                    $('#div-logo').html('');
+                });
             });
-          });
-          @endif
-      });
+            @endif
+        });
     </script>
 
     @if ($editMode == true)

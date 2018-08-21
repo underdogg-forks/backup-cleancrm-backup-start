@@ -2,25 +2,25 @@
 
 @section('javascript')
     <script type="text/javascript">
-      $(function () {
+        $(function () {
 
-        $('#btn-run-migration').click(function () {
+            $('#btn-run-migration').click(function () {
 
-          $('#btn-run-migration').hide();
-          $('#btn-running-migration').show();
+                $('#btn-run-migration').hide();
+                $('#btn-running-migration').show();
 
-          $.post('{{ route('setup.postMigration') }}').done(function () {
-            $('#div-exception').hide();
-            $('#btn-running-migration').hide();
-            $('#btn-migration-complete').show();
-          }).fail(function (response) {
-            $('#div-exception').show().html($.parseJSON(response.responseText).exception);
-            $('#btn-running-migration').hide();
-            $('#btn-run-migration').show();
-          });
+                $.post('{{ route('setup.postMigration') }}').done(function () {
+                    $('#div-exception').hide();
+                    $('#btn-running-migration').hide();
+                    $('#btn-migration-complete').show();
+                }).fail(function (response) {
+                    $('#div-exception').show().html($.parseJSON(response.responseText).exception);
+                    $('#btn-running-migration').hide();
+                    $('#btn-run-migration').show();
+                });
+            });
+
         });
-
-      });
     </script>
 @stop
 

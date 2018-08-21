@@ -12,11 +12,13 @@ class WidgetController extends Controller
         Setting::saveByKey('widgetInvoiceSummaryDashboardTotals', request('widgetInvoiceSummaryDashboardTotals'));
 
         if (request()->has('widgetInvoiceSummaryDashboardTotalsFromDate')) {
-            Setting::saveByKey('widgetInvoiceSummaryDashboardTotalsFromDate', request('widgetInvoiceSummaryDashboardTotalsFromDate'));
+            Setting::saveByKey('widgetInvoiceSummaryDashboardTotalsFromDate',
+                request('widgetInvoiceSummaryDashboardTotalsFromDate'));
         }
 
         if (request()->has('widgetInvoiceSummaryDashboardTotalsToDate')) {
-            Setting::saveByKey('widgetInvoiceSummaryDashboardTotalsToDate', request('widgetInvoiceSummaryDashboardTotalsToDate'));
+            Setting::saveByKey('widgetInvoiceSummaryDashboardTotalsToDate',
+                request('widgetInvoiceSummaryDashboardTotalsToDate'));
         }
 
         Setting::setAll();

@@ -3,29 +3,29 @@
 
 <div id="invoice-dashboard-totals-widget">
     <script type="text/javascript">
-      $(function () {
-        $('.invoice-dashboard-total-change-option').click(function () {
-          var option = $(this).data('id');
+        $(function () {
+            $('.invoice-dashboard-total-change-option').click(function () {
+                var option = $(this).data('id');
 
-          $.post("{{ route('widgets.dashboard.invoiceSummary.renderPartial') }}", {
-            widgetInvoiceSummaryDashboardTotals: option,
-            widgetInvoiceSummaryDashboardTotalsFromDate: $('#invoice-dashboard-total-setting-from-date').val(),
-            widgetInvoiceSummaryDashboardTotalsToDate: $('#invoice-dashboard-total-setting-to-date').val()
-          }, function (data) {
-            $('#invoice-dashboard-totals-widget').html(data);
-          });
+                $.post("{{ route('widgets.dashboard.invoiceSummary.renderPartial') }}", {
+                    widgetInvoiceSummaryDashboardTotals: option,
+                    widgetInvoiceSummaryDashboardTotalsFromDate: $('#invoice-dashboard-total-setting-from-date').val(),
+                    widgetInvoiceSummaryDashboardTotalsToDate: $('#invoice-dashboard-total-setting-to-date').val()
+                }, function (data) {
+                    $('#invoice-dashboard-totals-widget').html(data);
+                });
 
-        });
+            });
 
-        $('#invoice-dashboard-total-setting-from-date').datepicker({
-          format: 'yyyy-mm-dd',
-          autoclose: true
+            $('#invoice-dashboard-total-setting-from-date').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true
+            });
+            $('#invoice-dashboard-total-setting-to-date').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true
+            });
         });
-        $('#invoice-dashboard-total-setting-to-date').datepicker({
-          format: 'yyyy-mm-dd',
-          autoclose: true
-        });
-      });
     </script>
 
     <div class="card">
@@ -37,7 +37,7 @@
                 <span class="text-muted mr-2">{{ $invoiceDashboardTotalOptions[config('fi.widgetInvoiceSummaryDashboardTotals')] }}</span>
                 <div class="dropdown d-inline-block">
                     <span class="clickable text-muted dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                          aria-haspopup="true" aria-expanded="false">
                          <i class="fa fa-cog"></i>
                     </span>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -48,13 +48,13 @@
                             <li>
                                 @if ($key === 'custom_date_range')
                                     <a href="#" onclick="return false;" class="dropdown-item" data-toggle="modal"
-                                            data-target="#invoice-summary-widget-modal">
+                                       data-target="#invoice-summary-widget-modal">
                                         {{ $option }}
                                     </a>
                                 @else
                                     <a href="#" onclick="return false;"
-                                            class="dropdown-item invoice-dashboard-total-change-option"
-                                            data-id="{{ $key }}">
+                                       class="dropdown-item invoice-dashboard-total-change-option"
+                                       data-id="{{ $key }}">
                                         {{ $option }}
                                     </a>
                                 @endif
@@ -125,7 +125,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">@lang('ip.cancel')</button>
+                    <button type="button" class="btn btn-outline-secondary"
+                            data-dismiss="modal">@lang('ip.cancel')</button>
                     <button type="button" class="btn btn-success invoice-dashboard-total-change-option"
                             data-id="custom_date_range" data-dismiss="modal">@lang('ip.save')</button>
                 </div>

@@ -31,7 +31,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link"
-                        href="{{ route('invoices.index', ['status' => config('fi.invoiceStatusFilter')]) }}">
+                   href="{{ route('invoices.index', ['status' => config('fi.invoiceStatusFilter')]) }}">
                     <i class="nav-icon fa fa-file-text"></i> <span>@lang('ip.invoices')</span>
                 </a>
             </li>

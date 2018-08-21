@@ -89,16 +89,23 @@ abstract class Calculator
     /**
      * Adds a item for calculation.
      *
-     * @param int   $itemId
+     * @param int $itemId
      * @param float $quantity
      * @param float $price
      * @param float $taxRatePercent
      * @param float $taxRate2Percent
-     * @param int   $taxRate2IsCompound
-     * @param int   $calculateVat
+     * @param int $taxRate2IsCompound
+     * @param int $calculateVat
      */
-    public function addItem($itemId, $quantity, $price, $taxRatePercent = 0.00, $taxRate2Percent = 0.00, $taxRate2IsCompound = 0, $calculateVat = 0)
-    {
+    public function addItem(
+        $itemId,
+        $quantity,
+        $price,
+        $taxRatePercent = 0.00,
+        $taxRate2Percent = 0.00,
+        $taxRate2IsCompound = 0,
+        $calculateVat = 0
+    ) {
         $this->items[] = [
             'itemId' => $itemId,
             'quantity' => $quantity,
@@ -142,9 +149,11 @@ abstract class Calculator
 
             if ($item['taxRate2Percent']) {
                 if ($item['taxRate2IsCompound']) {
-                    $tax2 = round(($discountedSubtotal + $tax1) * ($item['taxRate2Percent'] / 100), config('fi.roundTaxDecimals'));
+                    $tax2 = round(($discountedSubtotal + $tax1) * ($item['taxRate2Percent'] / 100),
+                        config('fi.roundTaxDecimals'));
                 } else {
-                    $tax2 = round($discountedSubtotal * ($item['taxRate2Percent'] / 100), config('fi.roundTaxDecimals'));
+                    $tax2 = round($discountedSubtotal * ($item['taxRate2Percent'] / 100),
+                        config('fi.roundTaxDecimals'));
                 }
             } else {
                 $tax2 = 0;

@@ -19,7 +19,8 @@ Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'IP\Modules\
     Route::get('currencies/{id}/delete', ['uses' => 'CurrencyController@delete', 'as' => 'currencies.delete']);
 
     Route::post('currencies', ['uses' => 'CurrencyController@store', 'as' => 'currencies.store']);
-    Route::post('currencies/get-exchange-rate', ['uses' => 'CurrencyController@getExchangeRate', 'as' => 'currencies.getExchangeRate']);
+    Route::post('currencies/get-exchange-rate',
+        ['uses' => 'CurrencyController@getExchangeRate', 'as' => 'currencies.getExchangeRate']);
     Route::post('currencies/{id}', ['uses' => 'CurrencyController@update', 'as' => 'currencies.update']);
 
 });

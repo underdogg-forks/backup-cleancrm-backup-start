@@ -43,7 +43,8 @@ class RecurringInvoiceCreatingListener
             $recurringInvoice->exchange_rate = 1;
         } elseif (!$recurringInvoice->exchange_rate) {
             $currencyConverter = CurrencyConverterFactory::create();
-            $recurringInvoice->exchange_rate = $currencyConverter->convert(config('fi.baseCurrency'), $recurringInvoice->currency_code);
+            $recurringInvoice->exchange_rate = $currencyConverter->convert(config('fi.baseCurrency'),
+                $recurringInvoice->currency_code);
         }
     }
 }

@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\Settings\Models\Setting;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\Settings\Models\Setting;
 
 class SettingSaving extends Event
 {

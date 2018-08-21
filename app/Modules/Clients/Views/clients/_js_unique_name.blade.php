@@ -1,80 +1,80 @@
 <script type="text/javascript">
-  $(function () {
+    $(function () {
 
-    clientId = {{ isset($client) ? $client->id : 0 }};
-    stopHideUniqueName = false;
+        clientId = {{ isset($client) ? $client->id : 0 }};
+        stopHideUniqueName = false;
 
-    if ($('#unique_name').val() == '' || clientId == 0) {
-      hasUniqueName = false;
-    }
-    else {
-      hasUniqueName = true;
-    }
-
-    function clientNameIsDuplicate (name, callback) {
-      $.post('{{ route('clients.ajax.checkDuplicateName') }}', {
-        client_name: name,
-        client_id: clientId
-      }, callback);
-    }
-
-    function checkClientNameIsDuplicate (name) {
-      clientNameIsDuplicate(name, function (response) {
-        if (response.is_duplicate == 1) {
-          showUniqueName();
+        if ($('#unique_name').val() == '' || clientId == 0) {
+            hasUniqueName = false;
         }
         else {
-          hideUniqueName();
+            hasUniqueName = true;
         }
-      });
-    }
 
-    function showUniqueName () {
-      $('#col-client-name').removeClass('col-md-4').addClass('col-md-3');
-      $('#col-client-email').removeClass('col-md-4').addClass('col-md-3');
-      $('#col-client-active').removeClass('col-md-4').addClass('col-md-3');
-      $('#col-client-unique-name').show();
-      stopHideUniqueName = true;
-    }
+        function clientNameIsDuplicate(name, callback) {
+            $.post('{{ route('clients.ajax.checkDuplicateName') }}', {
+                client_name: name,
+                client_id: clientId
+            }, callback);
+        }
 
-    function hideUniqueName () {
-      if (stopHideUniqueName == false) {
-        $('#col-client-name').removeClass('col-md-3').addClass('col-md-4');
-        $('#col-client-email').removeClass('col-md-3').addClass('col-md-4');
-        $('#col-client-active').removeClass('col-md-3').addClass('col-md-4');
-        $('#col-client-unique-name').hide();
-      }
-    }
+        function checkClientNameIsDuplicate(name) {
+            clientNameIsDuplicate(name, function (response) {
+                if (response.is_duplicate == 1) {
+                    showUniqueName();
+                }
+                else {
+                    hideUniqueName();
+                }
+            });
+        }
 
-    $('#name').keyup(function () {
-      if (hasUniqueName == false) {
-        $('#unique_name').val($('#name').val());
-      }
-    });
+        function showUniqueName() {
+            $('#col-client-name').removeClass('col-md-4').addClass('col-md-3');
+            $('#col-client-email').removeClass('col-md-4').addClass('col-md-3');
+            $('#col-client-active').removeClass('col-md-4').addClass('col-md-3');
+            $('#col-client-unique-name').show();
+            stopHideUniqueName = true;
+        }
 
-    $('#unique_name').blur(function () {
-      if ($('#unique_name').val() == '') {
-        $('#unique_name').val($('#name').val());
-      }
-    });
+        function hideUniqueName() {
+            if (stopHideUniqueName == false) {
+                $('#col-client-name').removeClass('col-md-3').addClass('col-md-4');
+                $('#col-client-email').removeClass('col-md-3').addClass('col-md-4');
+                $('#col-client-active').removeClass('col-md-3').addClass('col-md-4');
+                $('#col-client-unique-name').hide();
+            }
+        }
 
-    $('#btn-show-unique-name').click(function () {
-      showUniqueName();
-      $('#btn-show-unique-name').hide();
-      stopHideUniqueName = true;
-    });
+        $('#name').keyup(function () {
+            if (hasUniqueName == false) {
+                $('#unique_name').val($('#name').val());
+            }
+        });
 
-      @if (config('fi.displayClientUniqueName'))
-      showUniqueName();
-      @else
-      checkClientNameIsDuplicate($('#name').val());
-    $('#name').blur(function () {
-      checkClientNameIsDuplicate($('#name').val());
-    });
-      @endif
+        $('#unique_name').blur(function () {
+            if ($('#unique_name').val() == '') {
+                $('#unique_name').val($('#name').val());
+            }
+        });
 
-      if ($('#name').val() !== $('#unique_name').val()) {
+        $('#btn-show-unique-name').click(function () {
+            showUniqueName();
+            $('#btn-show-unique-name').hide();
+            stopHideUniqueName = true;
+        });
+
+        @if (config('fi.displayClientUniqueName'))
         showUniqueName();
-      }
-  });
+        @else
+        checkClientNameIsDuplicate($('#name').val());
+        $('#name').blur(function () {
+            checkClientNameIsDuplicate($('#name').val());
+        });
+        @endif
+
+        if ($('#name').val() !== $('#unique_name').val()) {
+            showUniqueName();
+        }
+    });
 </script>

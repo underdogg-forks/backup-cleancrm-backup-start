@@ -13,14 +13,20 @@ class WidgetServiceProvider extends ServiceProvider
         view()->addLocation(app_path('Widgets/Dashboard/InvoiceSummary/Views'));
 
         // Register the widget view composer.
-        view()->composer('InvoiceSummaryWidget', 'IP\Widgets\Dashboard\InvoiceSummary\Composers\InvoiceSummaryWidgetComposer');
+        view()->composer('InvoiceSummaryWidget',
+            'IP\Widgets\Dashboard\InvoiceSummary\Composers\InvoiceSummaryWidgetComposer');
 
         // Register the setting view composer.
-        view()->composer('InvoiceSummaryWidgetSettings', 'IP\Widgets\Dashboard\InvoiceSummary\Composers\InvoiceSummarySettingComposer');
+        view()->composer('InvoiceSummaryWidgetSettings',
+            'IP\Widgets\Dashboard\InvoiceSummary\Composers\InvoiceSummarySettingComposer');
 
         // Widgets don't have route files so we'll place this here.
-        Route::group(['middleware' => ['web', 'auth.admin'], 'namespace' => 'IP\Widgets\Dashboard\InvoiceSummary\Controllers'], function () {
-            Route::post('widgets/dashboard/invoice_summary/render_partial', ['uses' => 'WidgetController@renderPartial', 'as' => 'widgets.dashboard.invoiceSummary.renderPartial']);
+        Route::group([
+            'middleware' => ['web', 'auth.admin'],
+            'namespace' => 'IP\Widgets\Dashboard\InvoiceSummary\Controllers'
+        ], function () {
+            Route::post('widgets/dashboard/invoice_summary/render_partial',
+                ['uses' => 'WidgetController@renderPartial', 'as' => 'widgets.dashboard.invoiceSummary.renderPartial']);
         });
     }
 

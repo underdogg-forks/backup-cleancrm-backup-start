@@ -19,8 +19,8 @@ class CurrencyFormatter extends NumberFormatter
     /**
      * Formats currency according to FI config.
      *
-     * @param  float   $amount
-     * @param  object  $currency
+     * @param  float $amount
+     * @param  object $currency
      * @param  integer $decimalPlaces
      * @return string
      */

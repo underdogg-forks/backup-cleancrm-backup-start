@@ -2,15 +2,15 @@
 
 @section('javascript')
     <script type="text/javascript">
-      $(function () {
-        $('#view-notes').hide();
-        $('.btn-notes').click(function () {
-          $('#view-doc').toggle();
-          $('#view-notes').toggle();
-          $('#' + $(this).data('button-toggle')).show();
-          $(this).hide();
+        $(function () {
+            $('#view-notes').hide();
+            $('.btn-notes').click(function () {
+                $('#view-doc').toggle();
+                $('#view-notes').toggle();
+                $('#' + $(this).data('button-toggle')).show();
+                $(this).hide();
+            });
         });
-      });
     </script>
 @stop
 

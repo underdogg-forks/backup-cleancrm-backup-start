@@ -67,7 +67,8 @@ trait Sortable
         }
 
         // If sortable contains "custom" and s=custom_*, it's allowed.
-        if ((array_key_exists('custom', $this->sortable) or in_array('custom', $this->sortable)) and substr(request('s'), 0, 7) == 'column_') {
+        if ((array_key_exists('custom', $this->sortable) or in_array('custom',
+                    $this->sortable)) and substr(request('s'), 0, 7) == 'column_') {
             return true;
         }
 

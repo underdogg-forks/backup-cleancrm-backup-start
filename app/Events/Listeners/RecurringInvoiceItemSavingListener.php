@@ -19,7 +19,8 @@ class RecurringInvoiceItemSavingListener
         }
 
         if (!$item->display_order) {
-            $displayOrder = RecurringInvoiceItem::where('invoice_id', $item->recurring_invoice_id)->max('display_order');
+            $displayOrder = RecurringInvoiceItem::where('invoice_id',
+                $item->recurring_invoice_id)->max('display_order');
 
             $displayOrder++;
 

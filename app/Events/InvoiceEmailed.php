@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\Invoices\Models\Invoice;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\Invoices\Models\Invoice;
 
 class InvoiceEmailed extends Event
 {

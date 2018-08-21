@@ -2,8 +2,8 @@
 
 namespace IP\Events;
 
-use IP\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
 use Illuminate\Queue\SerializesModels;
+use IP\Modules\RecurringInvoices\Models\RecurringInvoiceItem;
 
 class RecurringInvoiceItemSaving extends Event
 {

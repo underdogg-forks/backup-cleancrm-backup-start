@@ -87,8 +87,8 @@ class DateFormatter
     /**
      * Converts a stored date to the user formatted date.
      *
-     * @param string $date        The yyyy-mm-dd standardized date
-     * @param bool   $includeTime Whether or not to include the time
+     * @param string $date The yyyy-mm-dd standardized date
+     * @param bool $includeTime Whether or not to include the time
      * @return string             The user formatted date
      */
     public static function format($date = null, $includeTime = false)
@@ -122,8 +122,8 @@ class DateFormatter
     /**
      * Adds a specified number of days to a yyyy-mm-dd formatted date.
      *
-     * @param  string $date    The date
-     * @param  int    $numDays The number of days to increment
+     * @param  string $date The date
+     * @param  int $numDays The number of days to increment
      * @return string The yyyy-mm-dd standardized incremented date
      */
     public static function incrementDateByDays($date, $numDays)
@@ -138,9 +138,9 @@ class DateFormatter
     /**
      * Adds a specified number of periods to a yyyy-mm-dd formatted date.
      *
-     * @param  date $date       The date
-     * @param  int  $period     1 = Days, 2 = Weeks, 3 = Months, 4 = Years
-     * @param  int  $numPeriods The number of periods to increment
+     * @param  date $date The date
+     * @param  int $period 1 = Days, 2 = Weeks, 3 = Months, 4 = Years
+     * @param  int $numPeriods The number of periods to increment
      * @return string The yyyy-mm-dd standardized incremented date
      */
     public static function incrementDate($date, $period, $numPeriods)

@@ -27,7 +27,8 @@ class QuoteCreatingListener
         }
 
         if (!$quote->expires_at) {
-            $quote->expires_at = DateFormatter::incrementDateByDays($quote->quote_date->format('Y-m-d'), config('fi.quotesExpireAfter'));
+            $quote->expires_at = DateFormatter::incrementDateByDays($quote->quote_date->format('Y-m-d'),
+                config('fi.quotesExpireAfter'));
         }
 
         if (!$quote->company_profile_id) {

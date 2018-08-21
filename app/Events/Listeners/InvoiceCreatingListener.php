@@ -27,7 +27,8 @@ class InvoiceCreatingListener
         }
 
         if (!$invoice->due_at) {
-            $invoice->due_at = DateFormatter::incrementDateByDays($invoice->invoice_date->format('Y-m-d'), config('fi.invoicesDueAfter'));
+            $invoice->due_at = DateFormatter::incrementDateByDays($invoice->invoice_date->format('Y-m-d'),
+                config('fi.invoicesDueAfter'));
         }
 
         if (!$invoice->company_profile_id) {
