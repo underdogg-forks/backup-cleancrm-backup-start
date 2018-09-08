@@ -1,7 +1,10 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -22,10 +25,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Modules\\": "Modules/"
-
-
-
+            "Modules\\": "Modules/",
+            "Modules\\Core\\": "D:\\CleanSoft\\DockerProjects\\projects\\cleancrmstart\\Modules\\Core/src"
         }
     },
     "autoload-dev": {

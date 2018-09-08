@@ -163,6 +163,19 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
+
+
+
+        /*WebEd*/
+        Modules\Core\Providers\ModuleProvider::class,
+        Mrabbani\ModuleManager\Providers\ModuleProvider::class,
+        Laratrust\LaratrustServiceProvider::class,
+
+
+
+
+
         /*
          * Package Service Providers...
          */
@@ -176,21 +189,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-
-        Mrabbani\ModuleManager\Providers\ModuleProvider::class,
-        Laratrust\LaratrustServiceProvider::class,
-
-
-
-
-
-
-
-
-
-
-
 
     ],
 
