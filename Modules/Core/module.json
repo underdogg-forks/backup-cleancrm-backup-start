@@ -1,0 +1,9 @@
+{
+    "alias": "core",
+    "name": "core",
+    "author": "core",
+    "description": "core",
+    "namespace": "Modules\\Core",
+    "version": "0.5.4",
+    "autoload": "psr-4"
+}

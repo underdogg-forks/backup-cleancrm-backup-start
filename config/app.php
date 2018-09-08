@@ -177,6 +177,21 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        Mrabbani\ModuleManager\Providers\ModuleProvider::class,
+
+
+
+
+
+
+
+
+
+
+
+
+
     ],
 
     /*
