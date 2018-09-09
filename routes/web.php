@@ -11,15 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
 //'namespace' => 'IP\Modules\Dashboard\Controllers'
-Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
     Route::get('/', ['uses' => 'DashboardController@index', 'as' => 'dashboard.rootindex']);
     Route::get('dashboard', ['uses' => 'DashboardController@index', 'as' => 'dashboard.index']);
 
@@ -443,7 +440,7 @@ Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
 
 
 
-Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
     Route::group(['prefix' => 'quotes'], function () {
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'quotes.index']);
         Route::get('create', ['uses' => 'HomeController@create', 'as' => 'quotes.create']);
@@ -488,7 +485,7 @@ Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
     }); 
 });
 
-Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
     Route::group(['prefix' => 'invoices'], function () {
         Route::get('/', ['uses' => 'HomeController@index', 'as' => 'invoices.index']);
         Route::get('create', ['uses' => 'HomeController@create', 'as' => 'invoices.create']);
@@ -531,7 +528,7 @@ Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
 });
 
 
-Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
   Route::group(['prefix' => 'recurring_invoices'], function () {
       Route::get('/', ['uses' => 'HomeController@index', 'as' => 'recurringInvoices.index']);
       Route::get('create',
@@ -580,7 +577,7 @@ Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
   });
 });
 
-Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
     Route::get('payments', ['uses' => 'HomeController@index', 'as' => 'payments.index']);
     Route::post('payments/create', ['uses' => 'HomeController@create', 'as' => 'payments.create']);
     Route::post('payments/store', ['uses' => 'HomeController@store', 'as' => 'payments.store']);
@@ -599,7 +596,7 @@ Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
 
 
 
-Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
   Route::group([
       'middleware' => ['web'],
       'prefix' => 'expenses',
@@ -625,12 +622,12 @@ Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
   });
 });
 
-Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
     Route::group(['prefix' => 'invoices'], function () {
     });
 });
 
-Route::group(['prefix' => 'admincp', 'middleware' => ['web']], function () {
+Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
     Route::group(['prefix' => 'invoices'], function () {
     });
 });
@@ -654,15 +651,8 @@ Route::group(['middleware' => ['web'], 'namespace' => 'IP\Modules\Users\Controll
 });
 
 
-Auth::routes();
 
 
-
-Route::group(['namespace' => 'IP\Modules\Sessions\Controllers', 'middleware' => 'web'], function () {
-    Route::get('login', ['uses' => 'SessionController@login', 'as' => 'session.login']);
-    Route::post('login', ['uses' => 'SessionController@attempt', 'as' => 'session.attempt']);
-    Route::get('logout', ['uses' => 'SessionController@logout', 'as' => 'session.logout']);
-});
 
 
 

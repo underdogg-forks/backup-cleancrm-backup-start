@@ -29,10 +29,30 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
+        $this->mapLoginRoutes();
         $this->mapWebRoutes();
 
         //
     }
+
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapLoginRoutes()
+    {
+        Route::group([
+             'middleware' => 'web',
+             'namespace' => 'App\Http\Controllers',
+             ], function ($router) {
+            require __DIR__ . '/../../routes/login.php';
+        });
+    }
+
 
     /**
      * Define the "web" routes for the application.

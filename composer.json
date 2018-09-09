@@ -10,6 +10,7 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.4.*",
+        "laravelcollective/html": "^5.4",
         "laravel/tinker": "~1.0",
         "mrabbani/laravel-module-manager": "^1.5",
         "santigarcor/laratrust": "5.0.*"

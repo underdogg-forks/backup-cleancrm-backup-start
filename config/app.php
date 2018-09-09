@@ -120,7 +120,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -171,7 +171,7 @@ return [
         Modules\Core\Providers\ModuleProvider::class,
         Mrabbani\ModuleManager\Providers\ModuleProvider::class,
         Laratrust\LaratrustServiceProvider::class,
-
+        Collective\Html\HtmlServiceProvider::class,
 
 
 
@@ -240,10 +240,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Laratrust'   => Laratrust\LaratrustFacade::class,
-
-
-
-
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
 
 
