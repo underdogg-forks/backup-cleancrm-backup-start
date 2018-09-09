@@ -20,16 +20,6 @@ class UninstallModuleServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-
-    }
-
     private function booted()
     {
         $this->dropSchema();
@@ -39,8 +29,18 @@ class UninstallModuleServiceProvider extends ServiceProvider
     {
         //If you want to rollback your module migration
         // uncomment bellow statement
-         
+
 //        \Artisan::call('module:migrate:rollback', ['alias' => $this->moduleAlias]);
+
+    }
+
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
 
     }
 }

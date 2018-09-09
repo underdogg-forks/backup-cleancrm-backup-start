@@ -18,6 +18,14 @@ class BootstrapModuleServiceProvider extends ServiceProvider
         });
     }
 
+    private function booted()
+    {
+        /**
+         * Register dynamic menu or what you want when
+         * bootstrap your module
+         */
+    }
+
     /**
      * Register the application services.
      *
@@ -26,13 +34,5 @@ class BootstrapModuleServiceProvider extends ServiceProvider
     public function register()
     {
 
-    }
-
-    private function booted()
-    {
-        /**
-         * Register dynamic menu or what you want when
-         * bootstrap your module
-         */
     }
 }

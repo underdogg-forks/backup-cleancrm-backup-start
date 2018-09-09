@@ -6,7 +6,7 @@
  * Time: 11:11 AM
  */
 return [
-  'module_directory' => 'Modules',
-  'plugin_directory' => 'Modules',
+    'module_directory' => 'Modules',
+    'plugin_directory' => 'Modules',
 
 ];

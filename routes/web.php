@@ -48,24 +48,24 @@ Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
     });
 
     Route::group(['prefix' => 'addons', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
-      Route::get('/', ['uses' => 'AddonController@index', 'as' => 'addons.index']);
+        Route::get('/', ['uses' => 'AddonController@index', 'as' => 'addons.index']);
 
-      Route::get('install/{id}', ['uses' => 'AddonController@install', 'as' => 'addons.install']);
-      Route::get('uninstall/{id}', ['uses' => 'AddonController@uninstall', 'as' => 'addons.uninstall']);
-      Route::get('upgrade/{id}', ['uses' => 'AddonController@upgrade', 'as' => 'addons.upgrade']);
+        Route::get('install/{id}', ['uses' => 'AddonController@install', 'as' => 'addons.install']);
+        Route::get('uninstall/{id}', ['uses' => 'AddonController@uninstall', 'as' => 'addons.uninstall']);
+        Route::get('upgrade/{id}', ['uses' => 'AddonController@upgrade', 'as' => 'addons.upgrade']);
     });
 
     Route::group(['prefix' => 'currencies', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
-      Route::get('currencies', ['uses' => 'CurrencyController@index', 'as' => 'currencies.index']);
-      Route::get('currencies/create', ['uses' => 'CurrencyController@create', 'as' => 'currencies.create']);
-      Route::get('currencies/{id}/edit', ['uses' => 'CurrencyController@edit', 'as' => 'currencies.edit']);
-      Route::get('currencies/{id}/delete', ['uses' => 'CurrencyController@delete', 'as' => 'currencies.delete']);
+        Route::get('currencies', ['uses' => 'CurrencyController@index', 'as' => 'currencies.index']);
+        Route::get('currencies/create', ['uses' => 'CurrencyController@create', 'as' => 'currencies.create']);
+        Route::get('currencies/{id}/edit', ['uses' => 'CurrencyController@edit', 'as' => 'currencies.edit']);
+        Route::get('currencies/{id}/delete', ['uses' => 'CurrencyController@delete', 'as' => 'currencies.delete']);
 
-      Route::post('currencies', ['uses' => 'CurrencyController@store', 'as' => 'currencies.store']);
-      Route::post('currencies/get-exchange-rate',
-          ['uses' => 'CurrencyController@getExchangeRate', 'as' => 'currencies.getExchangeRate']);
-      Route::post('currencies/{id}', ['uses' => 'CurrencyController@update', 'as' => 'currencies.update']);
-    }); 
+        Route::post('currencies', ['uses' => 'CurrencyController@store', 'as' => 'currencies.store']);
+        Route::post('currencies/get-exchange-rate',
+            ['uses' => 'CurrencyController@getExchangeRate', 'as' => 'currencies.getExchangeRate']);
+        Route::post('currencies/{id}', ['uses' => 'CurrencyController@update', 'as' => 'currencies.update']);
+    });
 
     Route::group(['prefix' => 'company_profiles', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
 
@@ -90,54 +90,56 @@ Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
     });
 
     Route::group(['prefix' => 'exports', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
-      Route::get('/', ['uses' => 'ExportController@index', 'as' => 'export.index']);
-      Route::post('{export}', ['uses' => 'ExportController@export', 'as' => 'export.export']);
+        Route::get('/', ['uses' => 'ExportController@index', 'as' => 'export.index']);
+        Route::post('{export}', ['uses' => 'ExportController@export', 'as' => 'export.export']);
     });
 
     Route::group(['prefix' => 'numberformats', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
-      Route::get('groups', ['uses' => 'GroupController@index', 'as' => 'groups.index']);
-      Route::get('groups/create', ['uses' => 'GroupController@create', 'as' => 'groups.create']);
-      Route::get('groups/{group}/edit', ['uses' => 'GroupController@edit', 'as' => 'groups.edit']);
-      Route::get('groups/{group}/delete', ['uses' => 'GroupController@delete', 'as' => 'groups.delete']);
+        Route::get('groups', ['uses' => 'GroupController@index', 'as' => 'groups.index']);
+        Route::get('groups/create', ['uses' => 'GroupController@create', 'as' => 'groups.create']);
+        Route::get('groups/{group}/edit', ['uses' => 'GroupController@edit', 'as' => 'groups.edit']);
+        Route::get('groups/{group}/delete', ['uses' => 'GroupController@delete', 'as' => 'groups.delete']);
 
-      Route::post('groups', ['uses' => 'GroupController@store', 'as' => 'groups.store']);
-      Route::post('groups/{group}', ['uses' => 'GroupController@update', 'as' => 'groups.update']);
+        Route::post('groups', ['uses' => 'GroupController@store', 'as' => 'groups.store']);
+        Route::post('groups/{group}', ['uses' => 'GroupController@update', 'as' => 'groups.update']);
     });
 
     Route::group(['prefix' => 'imports', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
-      Route::get('import', ['uses' => 'ImportController@index', 'as' => 'import.index']);
-      Route::get('import/map/{import_type}', ['uses' => 'ImportController@mapImport', 'as' => 'import.map']);
+        Route::get('import', ['uses' => 'ImportController@index', 'as' => 'import.index']);
+        Route::get('import/map/{import_type}', ['uses' => 'ImportController@mapImport', 'as' => 'import.map']);
 
-      Route::post('import/upload', ['uses' => 'ImportController@upload', 'as' => 'import.upload']);
-      Route::post('import/map/{import_type}',
-          ['uses' => 'ImportController@mapImportSubmit', 'as' => 'import.map.submit']);
+        Route::post('import/upload', ['uses' => 'ImportController@upload', 'as' => 'import.upload']);
+        Route::post('import/map/{import_type}',
+            ['uses' => 'ImportController@mapImportSubmit', 'as' => 'import.map.submit']);
     });
 
     Route::group(['prefix' => 'itemlookups', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
-      Route::get('item_lookups', ['uses' => 'ItemLookupController@index', 'as' => 'itemLookups.index']);
-      Route::get('item_lookups/create', ['uses' => 'ItemLookupController@create', 'as' => 'itemLookups.create']);
-      Route::get('item_lookups/{itemLookup}/edit', ['uses' => 'ItemLookupController@edit', 'as' => 'itemLookups.edit']);
-      Route::get('item_lookups/{itemLookup}/delete',
-          ['uses' => 'ItemLookupController@delete', 'as' => 'itemLookups.delete']);
-      Route::get('item_lookups/ajax/item_lookup',
-          ['uses' => 'ItemLookupController@ajaxItemLookup', 'as' => 'itemLookups.ajax.itemLookup']);
+        Route::get('item_lookups', ['uses' => 'ItemLookupController@index', 'as' => 'itemLookups.index']);
+        Route::get('item_lookups/create', ['uses' => 'ItemLookupController@create', 'as' => 'itemLookups.create']);
+        Route::get('item_lookups/{itemLookup}/edit',
+            ['uses' => 'ItemLookupController@edit', 'as' => 'itemLookups.edit']);
+        Route::get('item_lookups/{itemLookup}/delete',
+            ['uses' => 'ItemLookupController@delete', 'as' => 'itemLookups.delete']);
+        Route::get('item_lookups/ajax/item_lookup',
+            ['uses' => 'ItemLookupController@ajaxItemLookup', 'as' => 'itemLookups.ajax.itemLookup']);
 
-      Route::post('item_lookups', ['uses' => 'ItemLookupController@store', 'as' => 'itemLookups.store']);
-      Route::post('item_lookups/{itemLookup}', ['uses' => 'ItemLookupController@update', 'as' => 'itemLookups.update']);
-      Route::post('item_lookups/ajax/process',
-          ['uses' => 'ItemLookupController@process', 'as' => 'itemLookups.ajax.process']);
+        Route::post('item_lookups', ['uses' => 'ItemLookupController@store', 'as' => 'itemLookups.store']);
+        Route::post('item_lookups/{itemLookup}',
+            ['uses' => 'ItemLookupController@update', 'as' => 'itemLookups.update']);
+        Route::post('item_lookups/ajax/process',
+            ['uses' => 'ItemLookupController@process', 'as' => 'itemLookups.ajax.process']);
     });
 
     Route::group(['prefix' => 'mail_queue', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
-      Route::get('/', ['uses' => 'MailLogController@index', 'as' => 'mailLog.index']);
-      Route::post('content', ['uses' => 'MailLogController@content', 'as' => 'mailLog.content']);
-      Route::get('{id}/delete', ['uses' => 'MailLogController@delete', 'as' => 'mailLog.delete']);
+        Route::get('/', ['uses' => 'MailLogController@index', 'as' => 'mailLog.index']);
+        Route::post('content', ['uses' => 'MailLogController@content', 'as' => 'mailLog.content']);
+        Route::get('{id}/delete', ['uses' => 'MailLogController@delete', 'as' => 'mailLog.delete']);
     });
 
     Route::group(['prefix' => 'mail_log', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
-      Route::get('/', ['uses' => 'MailLogController@index', 'as' => 'mailLog.index']);
-      Route::post('content', ['uses' => 'MailLogController@content', 'as' => 'mailLog.content']);
-      Route::get('{id}/delete', ['uses' => 'MailLogController@delete', 'as' => 'mailLog.delete']);
+        Route::get('/', ['uses' => 'MailLogController@index', 'as' => 'mailLog.index']);
+        Route::post('content', ['uses' => 'MailLogController@content', 'as' => 'mailLog.content']);
+        Route::get('{id}/delete', ['uses' => 'MailLogController@delete', 'as' => 'mailLog.delete']);
     });
 
 
@@ -157,201 +159,223 @@ Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
         });
 
 
+    Route::group([
+        'prefix' => 'report',
+        'middleware' => ['web'],
+        'namespace' => 'IP\Modules\Reports\Controllers'
+    ], function () {
+        Route::get('client_statement',
+            ['uses' => 'ClientStatementReportController@index', 'as' => 'reports.clientStatement']);
+        Route::post('client_statement/validate',
+            ['uses' => 'ClientStatementReportController@validateOptions', 'as' => 'reports.clientStatement.validate']);
+        Route::get('client_statement/html',
+            ['uses' => 'ClientStatementReportController@html', 'as' => 'reports.clientStatement.html']);
+        Route::get('client_statement/pdf',
+            ['uses' => 'ClientStatementReportController@pdf', 'as' => 'reports.clientStatement.pdf']);
 
-        Route::group([
-            'prefix' => 'report',
-            'middleware' => ['web'],
-            'namespace' => 'IP\Modules\Reports\Controllers'
-        ], function () {
-            Route::get('client_statement',
-                ['uses' => 'ClientStatementReportController@index', 'as' => 'reports.clientStatement']);
-            Route::post('client_statement/validate',
-                ['uses' => 'ClientStatementReportController@validateOptions', 'as' => 'reports.clientStatement.validate']);
-            Route::get('client_statement/html',
-                ['uses' => 'ClientStatementReportController@html', 'as' => 'reports.clientStatement.html']);
-            Route::get('client_statement/pdf',
-                ['uses' => 'ClientStatementReportController@pdf', 'as' => 'reports.clientStatement.pdf']);
+        Route::get('item_sales', ['uses' => 'ItemSalesReportController@index', 'as' => 'reports.itemSales']);
+        Route::post('item_sales/validate',
+            ['uses' => 'ItemSalesReportController@validateOptions', 'as' => 'reports.itemSales.validate']);
+        Route::get('item_sales/html', ['uses' => 'ItemSalesReportController@html', 'as' => 'reports.itemSales.html']);
+        Route::get('item_sales/pdf', ['uses' => 'ItemSalesReportController@pdf', 'as' => 'reports.itemSales.pdf']);
 
-            Route::get('item_sales', ['uses' => 'ItemSalesReportController@index', 'as' => 'reports.itemSales']);
-            Route::post('item_sales/validate',
-                ['uses' => 'ItemSalesReportController@validateOptions', 'as' => 'reports.itemSales.validate']);
-            Route::get('item_sales/html', ['uses' => 'ItemSalesReportController@html', 'as' => 'reports.itemSales.html']);
-            Route::get('item_sales/pdf', ['uses' => 'ItemSalesReportController@pdf', 'as' => 'reports.itemSales.pdf']);
+        Route::get('payments_collected',
+            ['uses' => 'PaymentsCollectedReportController@index', 'as' => 'reports.paymentsCollected']);
+        Route::post('payments_collected/validate',
+            [
+                'uses' => 'PaymentsCollectedReportController@validateOptions',
+                'as' => 'reports.paymentsCollected.validate'
+            ]);
+        Route::get('payments_collected/html',
+            ['uses' => 'PaymentsCollectedReportController@html', 'as' => 'reports.paymentsCollected.html']);
+        Route::get('payments_collected/pdf',
+            ['uses' => 'PaymentsCollectedReportController@pdf', 'as' => 'reports.paymentsCollected.pdf']);
 
-            Route::get('payments_collected',
-                ['uses' => 'PaymentsCollectedReportController@index', 'as' => 'reports.paymentsCollected']);
-            Route::post('payments_collected/validate',
-                ['uses' => 'PaymentsCollectedReportController@validateOptions', 'as' => 'reports.paymentsCollected.validate']);
-            Route::get('payments_collected/html',
-                ['uses' => 'PaymentsCollectedReportController@html', 'as' => 'reports.paymentsCollected.html']);
-            Route::get('payments_collected/pdf',
-                ['uses' => 'PaymentsCollectedReportController@pdf', 'as' => 'reports.paymentsCollected.pdf']);
+        Route::get('revenue_by_client',
+            ['uses' => 'RevenueByClientReportController@index', 'as' => 'reports.revenueByClient']);
+        Route::post('revenue_by_client/validate',
+            ['uses' => 'RevenueByClientReportController@validateOptions', 'as' => 'reports.revenueByClient.validate']);
+        Route::get('revenue_by_client/html',
+            ['uses' => 'RevenueByClientReportController@html', 'as' => 'reports.revenueByClient.html']);
+        Route::get('revenue_by_client/pdf',
+            ['uses' => 'RevenueByClientReportController@pdf', 'as' => 'reports.revenueByClient.pdf']);
 
-            Route::get('revenue_by_client',
-                ['uses' => 'RevenueByClientReportController@index', 'as' => 'reports.revenueByClient']);
-            Route::post('revenue_by_client/validate',
-                ['uses' => 'RevenueByClientReportController@validateOptions', 'as' => 'reports.revenueByClient.validate']);
-            Route::get('revenue_by_client/html',
-                ['uses' => 'RevenueByClientReportController@html', 'as' => 'reports.revenueByClient.html']);
-            Route::get('revenue_by_client/pdf',
-                ['uses' => 'RevenueByClientReportController@pdf', 'as' => 'reports.revenueByClient.pdf']);
+        Route::get('tax_summary', ['uses' => 'TaxSummaryReportController@index', 'as' => 'reports.taxSummary']);
+        Route::post('tax_summary/validate',
+            ['uses' => 'TaxSummaryReportController@validateOptions', 'as' => 'reports.taxSummary.validate']);
+        Route::get('tax_summary/html',
+            ['uses' => 'TaxSummaryReportController@html', 'as' => 'reports.taxSummary.html']);
+        Route::get('tax_summary/pdf', ['uses' => 'TaxSummaryReportController@pdf', 'as' => 'reports.taxSummary.pdf']);
 
-            Route::get('tax_summary', ['uses' => 'TaxSummaryReportController@index', 'as' => 'reports.taxSummary']);
-            Route::post('tax_summary/validate',
-                ['uses' => 'TaxSummaryReportController@validateOptions', 'as' => 'reports.taxSummary.validate']);
-            Route::get('tax_summary/html', ['uses' => 'TaxSummaryReportController@html', 'as' => 'reports.taxSummary.html']);
-            Route::get('tax_summary/pdf', ['uses' => 'TaxSummaryReportController@pdf', 'as' => 'reports.taxSummary.pdf']);
+        Route::get('profit_loss', ['uses' => 'ProfitLossReportController@index', 'as' => 'reports.profitLoss']);
+        Route::post('profit_loss/validate',
+            ['uses' => 'ProfitLossReportController@validateOptions', 'as' => 'reports.profitLoss.validate']);
+        Route::get('profit_loss/html',
+            ['uses' => 'ProfitLossReportController@html', 'as' => 'reports.profitLoss.html']);
+        Route::get('profit_loss/pdf', ['uses' => 'ProfitLossReportController@pdf', 'as' => 'reports.profitLoss.pdf']);
 
-            Route::get('profit_loss', ['uses' => 'ProfitLossReportController@index', 'as' => 'reports.profitLoss']);
-            Route::post('profit_loss/validate',
-                ['uses' => 'ProfitLossReportController@validateOptions', 'as' => 'reports.profitLoss.validate']);
-            Route::get('profit_loss/html', ['uses' => 'ProfitLossReportController@html', 'as' => 'reports.profitLoss.html']);
-            Route::get('profit_loss/pdf', ['uses' => 'ProfitLossReportController@pdf', 'as' => 'reports.profitLoss.pdf']);
-
-            Route::get('expense_list', ['uses' => 'ExpenseListReportController@index', 'as' => 'reports.expenseList']);
-            Route::post('expense_list/validate',
-                ['uses' => 'ExpenseListReportController@validateOptions', 'as' => 'reports.expenseList.validate']);
-            Route::get('expense_list/html', ['uses' => 'ExpenseListReportController@html', 'as' => 'reports.expenseList.html']);
-            Route::get('expense_list/pdf', ['uses' => 'ExpenseListReportController@pdf', 'as' => 'reports.expenseList.pdf']);
-        });
-
-
-        Route::group([
-            'prefix' => 'templates',
-            'middleware' => ['web'],
-            'namespace' => 'IP\Modules\Templates\Controllers'
-        ], function () {
-            Route::get('client_statement',
-                ['uses' => 'ClientStatementTemplatesController@index', 'as' => 'templates.clientStatement']);
-            Route::post('client_statement/validate',
-                ['uses' => 'ClientStatementTemplatesController@validateOptions', 'as' => 'templates.clientStatement.validate']);
-            Route::get('client_statement/html',
-                ['uses' => 'ClientStatementTemplatesController@html', 'as' => 'templates.clientStatement.html']);
-            Route::get('client_statement/pdf',
-                ['uses' => 'ClientStatementTemplatesController@pdf', 'as' => 'templates.clientStatement.pdf']);
-
-            Route::get('item_sales', ['uses' => 'ItemSalesTemplatesController@index', 'as' => 'templates.itemSales']);
-            Route::post('item_sales/validate',
-                ['uses' => 'ItemSalesTemplatesController@validateOptions', 'as' => 'templates.itemSales.validate']);
-            Route::get('item_sales/html', ['uses' => 'ItemSalesTemplatesController@html', 'as' => 'templates.itemSales.html']);
-            Route::get('item_sales/pdf', ['uses' => 'ItemSalesTemplatesController@pdf', 'as' => 'templates.itemSales.pdf']);
-
-            Route::get('payments_collected',
-                ['uses' => 'PaymentsCollectedTemplatesController@index', 'as' => 'templates.paymentsCollected']);
-            Route::post('payments_collected/validate',
-                ['uses' => 'PaymentsCollectedTemplatesController@validateOptions', 'as' => 'templates.paymentsCollected.validate']);
-            Route::get('payments_collected/html',
-                ['uses' => 'PaymentsCollectedTemplatesController@html', 'as' => 'templates.paymentsCollected.html']);
-            Route::get('payments_collected/pdf',
-                ['uses' => 'PaymentsCollectedTemplatesController@pdf', 'as' => 'templates.paymentsCollected.pdf']);
-
-            Route::get('revenue_by_client',
-                ['uses' => 'RevenueByClientTemplatesController@index', 'as' => 'templates.revenueByClient']);
-            Route::post('revenue_by_client/validate',
-                ['uses' => 'RevenueByClientTemplatesController@validateOptions', 'as' => 'templates.revenueByClient.validate']);
-            Route::get('revenue_by_client/html',
-                ['uses' => 'RevenueByClientTemplatesController@html', 'as' => 'templates.revenueByClient.html']);
-            Route::get('revenue_by_client/pdf',
-                ['uses' => 'RevenueByClientTemplatesController@pdf', 'as' => 'templates.revenueByClient.pdf']);
-
-            Route::get('tax_summary', ['uses' => 'TaxSummaryTemplatesController@index', 'as' => 'templates.taxSummary']);
-            Route::post('tax_summary/validate',
-                ['uses' => 'TaxSummaryTemplatesController@validateOptions', 'as' => 'templates.taxSummary.validate']);
-            Route::get('tax_summary/html', ['uses' => 'TaxSummaryTemplatesController@html', 'as' => 'templates.taxSummary.html']);
-            Route::get('tax_summary/pdf', ['uses' => 'TaxSummaryTemplatesController@pdf', 'as' => 'templates.taxSummary.pdf']);
-
-            Route::get('profit_loss', ['uses' => 'ProfitLossTemplatesController@index', 'as' => 'templates.profitLoss']);
-            Route::post('profit_loss/validate',
-                ['uses' => 'ProfitLossTemplatesController@validateOptions', 'as' => 'templates.profitLoss.validate']);
-            Route::get('profit_loss/html', ['uses' => 'ProfitLossTemplatesController@html', 'as' => 'templates.profitLoss.html']);
-            Route::get('profit_loss/pdf', ['uses' => 'ProfitLossTemplatesController@pdf', 'as' => 'templates.profitLoss.pdf']);
-
-            Route::get('expense_list', ['uses' => 'ExpenseListTemplatesController@index', 'as' => 'templates.expenseList']);
-            Route::post('expense_list/validate',
-                ['uses' => 'ExpenseListTemplatesController@validateOptions', 'as' => 'templates.expenseList.validate']);
-            Route::get('expense_list/html', ['uses' => 'ExpenseListTemplatesController@html', 'as' => 'templates.expenseList.html']);
-            Route::get('expense_list/pdf', ['uses' => 'ExpenseListTemplatesController@pdf', 'as' => 'templates.expenseList.pdf']);
-        });
-
-        Route::group(['middleware' => ['web'], 'namespace' => 'IP\Modules\Settings\Controllers'], function () {
-            Route::get('settings', ['uses' => 'SettingController@index', 'as' => 'settings.index']);
-            Route::post('settings', ['uses' => 'SettingController@update', 'as' => 'settings.update']);
-            Route::get('settings/update_check', ['uses' => 'SettingController@updateCheck', 'as' => 'settings.updateCheck']);
-            Route::get('settings/logo/delete', ['uses' => 'SettingController@logoDelete', 'as' => 'settings.logo.delete']);
-            Route::post('settings/save_tab', ['uses' => 'SettingController@saveTab', 'as' => 'settings.saveTab']);
-
-            if (!config('app.demo')) {
-                Route::get('backup/database', ['uses' => 'BackupController@database', 'as' => 'settings.backup.database']);
-            }
-        });
-
-        Route::get('tasks/run', ['uses' => 'IP\Modules\Tasks\Controllers\TaskController@run', 'as' => 'tasks.run']);
-
-        Route::group(['middleware' => ['web'], 'namespace' => 'IP\Modules\TaxRates\Controllers'], function () {
-            Route::get('tax_rates', ['uses' => 'TaxRateController@index', 'as' => 'taxRates.index']);
-            Route::get('tax_rates/create', ['uses' => 'TaxRateController@create', 'as' => 'taxRates.create']);
-            Route::get('tax_rates/{taxRate}/edit', ['uses' => 'TaxRateController@edit', 'as' => 'taxRates.edit']);
-            Route::get('tax_rates/{taxRate}/delete', ['uses' => 'TaxRateController@delete', 'as' => 'taxRates.delete']);
-
-            Route::post('tax_rates', ['uses' => 'TaxRateController@store', 'as' => 'taxRates.store']);
-            Route::post('tax_rates/{taxRate}', ['uses' => 'TaxRateController@update', 'as' => 'taxRates.update']);
-        });
+        Route::get('expense_list', ['uses' => 'ExpenseListReportController@index', 'as' => 'reports.expenseList']);
+        Route::post('expense_list/validate',
+            ['uses' => 'ExpenseListReportController@validateOptions', 'as' => 'reports.expenseList.validate']);
+        Route::get('expense_list/html',
+            ['uses' => 'ExpenseListReportController@html', 'as' => 'reports.expenseList.html']);
+        Route::get('expense_list/pdf',
+            ['uses' => 'ExpenseListReportController@pdf', 'as' => 'reports.expenseList.pdf']);
+    });
 
 
+    Route::group([
+        'prefix' => 'templates',
+        'middleware' => ['web'],
+        'namespace' => 'IP\Modules\Templates\Controllers'
+    ], function () {
+        Route::get('client_statement',
+            ['uses' => 'ClientStatementTemplatesController@index', 'as' => 'templates.clientStatement']);
+        Route::post('client_statement/validate',
+            [
+                'uses' => 'ClientStatementTemplatesController@validateOptions',
+                'as' => 'templates.clientStatement.validate'
+            ]);
+        Route::get('client_statement/html',
+            ['uses' => 'ClientStatementTemplatesController@html', 'as' => 'templates.clientStatement.html']);
+        Route::get('client_statement/pdf',
+            ['uses' => 'ClientStatementTemplatesController@pdf', 'as' => 'templates.clientStatement.pdf']);
+
+        Route::get('item_sales', ['uses' => 'ItemSalesTemplatesController@index', 'as' => 'templates.itemSales']);
+        Route::post('item_sales/validate',
+            ['uses' => 'ItemSalesTemplatesController@validateOptions', 'as' => 'templates.itemSales.validate']);
+        Route::get('item_sales/html',
+            ['uses' => 'ItemSalesTemplatesController@html', 'as' => 'templates.itemSales.html']);
+        Route::get('item_sales/pdf', ['uses' => 'ItemSalesTemplatesController@pdf', 'as' => 'templates.itemSales.pdf']);
+
+        Route::get('payments_collected',
+            ['uses' => 'PaymentsCollectedTemplatesController@index', 'as' => 'templates.paymentsCollected']);
+        Route::post('payments_collected/validate',
+            [
+                'uses' => 'PaymentsCollectedTemplatesController@validateOptions',
+                'as' => 'templates.paymentsCollected.validate'
+            ]);
+        Route::get('payments_collected/html',
+            ['uses' => 'PaymentsCollectedTemplatesController@html', 'as' => 'templates.paymentsCollected.html']);
+        Route::get('payments_collected/pdf',
+            ['uses' => 'PaymentsCollectedTemplatesController@pdf', 'as' => 'templates.paymentsCollected.pdf']);
+
+        Route::get('revenue_by_client',
+            ['uses' => 'RevenueByClientTemplatesController@index', 'as' => 'templates.revenueByClient']);
+        Route::post('revenue_by_client/validate',
+            [
+                'uses' => 'RevenueByClientTemplatesController@validateOptions',
+                'as' => 'templates.revenueByClient.validate'
+            ]);
+        Route::get('revenue_by_client/html',
+            ['uses' => 'RevenueByClientTemplatesController@html', 'as' => 'templates.revenueByClient.html']);
+        Route::get('revenue_by_client/pdf',
+            ['uses' => 'RevenueByClientTemplatesController@pdf', 'as' => 'templates.revenueByClient.pdf']);
+
+        Route::get('tax_summary', ['uses' => 'TaxSummaryTemplatesController@index', 'as' => 'templates.taxSummary']);
+        Route::post('tax_summary/validate',
+            ['uses' => 'TaxSummaryTemplatesController@validateOptions', 'as' => 'templates.taxSummary.validate']);
+        Route::get('tax_summary/html',
+            ['uses' => 'TaxSummaryTemplatesController@html', 'as' => 'templates.taxSummary.html']);
+        Route::get('tax_summary/pdf',
+            ['uses' => 'TaxSummaryTemplatesController@pdf', 'as' => 'templates.taxSummary.pdf']);
+
+        Route::get('profit_loss', ['uses' => 'ProfitLossTemplatesController@index', 'as' => 'templates.profitLoss']);
+        Route::post('profit_loss/validate',
+            ['uses' => 'ProfitLossTemplatesController@validateOptions', 'as' => 'templates.profitLoss.validate']);
+        Route::get('profit_loss/html',
+            ['uses' => 'ProfitLossTemplatesController@html', 'as' => 'templates.profitLoss.html']);
+        Route::get('profit_loss/pdf',
+            ['uses' => 'ProfitLossTemplatesController@pdf', 'as' => 'templates.profitLoss.pdf']);
+
+        Route::get('expense_list', ['uses' => 'ExpenseListTemplatesController@index', 'as' => 'templates.expenseList']);
+        Route::post('expense_list/validate',
+            ['uses' => 'ExpenseListTemplatesController@validateOptions', 'as' => 'templates.expenseList.validate']);
+        Route::get('expense_list/html',
+            ['uses' => 'ExpenseListTemplatesController@html', 'as' => 'templates.expenseList.html']);
+        Route::get('expense_list/pdf',
+            ['uses' => 'ExpenseListTemplatesController@pdf', 'as' => 'templates.expenseList.pdf']);
+    });
+
+    Route::group(['middleware' => ['web'], 'namespace' => 'IP\Modules\Settings\Controllers'], function () {
+        Route::get('settings', ['uses' => 'SettingController@index', 'as' => 'settings.index']);
+        Route::post('settings', ['uses' => 'SettingController@update', 'as' => 'settings.update']);
+        Route::get('settings/update_check',
+            ['uses' => 'SettingController@updateCheck', 'as' => 'settings.updateCheck']);
+        Route::get('settings/logo/delete', ['uses' => 'SettingController@logoDelete', 'as' => 'settings.logo.delete']);
+        Route::post('settings/save_tab', ['uses' => 'SettingController@saveTab', 'as' => 'settings.saveTab']);
+
+        if (!config('app.demo')) {
+            Route::get('backup/database', ['uses' => 'BackupController@database', 'as' => 'settings.backup.database']);
+        }
+    });
+
+    Route::get('tasks/run', ['uses' => 'IP\Modules\Tasks\Controllers\TaskController@run', 'as' => 'tasks.run']);
+
+    Route::group(['middleware' => ['web'], 'namespace' => 'IP\Modules\TaxRates\Controllers'], function () {
+        Route::get('tax_rates', ['uses' => 'TaxRateController@index', 'as' => 'taxRates.index']);
+        Route::get('tax_rates/create', ['uses' => 'TaxRateController@create', 'as' => 'taxRates.create']);
+        Route::get('tax_rates/{taxRate}/edit', ['uses' => 'TaxRateController@edit', 'as' => 'taxRates.edit']);
+        Route::get('tax_rates/{taxRate}/delete', ['uses' => 'TaxRateController@delete', 'as' => 'taxRates.delete']);
+
+        Route::post('tax_rates', ['uses' => 'TaxRateController@store', 'as' => 'taxRates.store']);
+        Route::post('tax_rates/{taxRate}', ['uses' => 'TaxRateController@update', 'as' => 'taxRates.update']);
+    });
 
 
     Route::group(['prefix' => 'relations'], function () {
 
-      Route::group([
-          'middleware' => ['web'],
-          'prefix' => 'customers',
-          'namespace' => 'IP\Modules\Clients\Controllers'
-      ], function () {
-          Route::get('/', ['uses' => 'ClientController@index', 'as' => 'customers.index']);
-          Route::get('create', ['uses' => 'ClientController@create', 'as' => 'customers.create']);
-          Route::get('{id}/edit', ['uses' => 'ClientController@edit', 'as' => 'customers.edit']);
-          Route::get('{id}', ['uses' => 'ClientController@show', 'as' => 'customers.show']);
-          Route::get('{id}/delete', ['uses' => 'ClientController@delete', 'as' => 'customers.delete']);
-          Route::get('ajax/lookup', ['uses' => 'ClientController@ajaxLookup', 'as' => 'customers.ajax.lookup']);
+        Route::group([
+            'middleware' => ['web'],
+            'prefix' => 'customers',
+            'namespace' => 'IP\Modules\Clients\Controllers'
+        ], function () {
+            Route::get('/', ['uses' => 'ClientController@index', 'as' => 'customers.index']);
+            Route::get('create', ['uses' => 'ClientController@create', 'as' => 'customers.create']);
+            Route::get('{id}/edit', ['uses' => 'ClientController@edit', 'as' => 'customers.edit']);
+            Route::get('{id}', ['uses' => 'ClientController@show', 'as' => 'customers.show']);
+            Route::get('{id}/delete', ['uses' => 'ClientController@delete', 'as' => 'customers.delete']);
+            Route::get('ajax/lookup', ['uses' => 'ClientController@ajaxLookup', 'as' => 'customers.ajax.lookup']);
 
-          Route::post('create', ['uses' => 'ClientController@store', 'as' => 'customers.store']);
-          Route::post('ajax/modal_edit', ['uses' => 'ClientController@ajaxModalEdit', 'as' => 'customers.ajax.modalEdit']);
-          Route::post('ajax/modal_lookup',
-              ['uses' => 'ClientController@ajaxModalLookup', 'as' => 'customers.ajax.modalLookup']);
-          Route::post('ajax/modal_update/{id}',
-              ['uses' => 'ClientController@ajaxModalUpdate', 'as' => 'customers.ajax.modalUpdate']);
-          Route::post('ajax/check_name', ['uses' => 'ClientController@ajaxCheckName', 'as' => 'customers.ajax.checkName']);
-          Route::post('ajax/check_duplicate_name',
-              ['uses' => 'ClientController@ajaxCheckDuplicateName', 'as' => 'customers.ajax.checkDuplicateName']);
-          Route::post('{id}/edit', ['uses' => 'ClientController@update', 'as' => 'customers.update']);
+            Route::post('create', ['uses' => 'ClientController@store', 'as' => 'customers.store']);
+            Route::post('ajax/modal_edit',
+                ['uses' => 'ClientController@ajaxModalEdit', 'as' => 'customers.ajax.modalEdit']);
+            Route::post('ajax/modal_lookup',
+                ['uses' => 'ClientController@ajaxModalLookup', 'as' => 'customers.ajax.modalLookup']);
+            Route::post('ajax/modal_update/{id}',
+                ['uses' => 'ClientController@ajaxModalUpdate', 'as' => 'customers.ajax.modalUpdate']);
+            Route::post('ajax/check_name',
+                ['uses' => 'ClientController@ajaxCheckName', 'as' => 'customers.ajax.checkName']);
+            Route::post('ajax/check_duplicate_name',
+                ['uses' => 'ClientController@ajaxCheckDuplicateName', 'as' => 'customers.ajax.checkDuplicateName']);
+            Route::post('{id}/edit', ['uses' => 'ClientController@update', 'as' => 'customers.update']);
 
-          Route::post('bulk/delete', ['uses' => 'ClientController@bulkDelete', 'as' => 'customers.bulk.delete']);
+            Route::post('bulk/delete', ['uses' => 'ClientController@bulkDelete', 'as' => 'customers.bulk.delete']);
 
-          Route::group(['prefix' => '{clientId}/contacts'], function () {
-              Route::get('create', ['uses' => 'ContactController@create', 'as' => 'customers.contacts.create']);
-              Route::post('create', ['uses' => 'ContactController@store', 'as' => 'customers.contacts.store']);
-              Route::get('edit/{contactId}', ['uses' => 'ContactController@edit', 'as' => 'customers.contacts.edit']);
-              Route::post('edit/{contactId}', ['uses' => 'ContactController@update', 'as' => 'customers.contacts.update']);
-              Route::post('delete', ['uses' => 'ContactController@delete', 'as' => 'customers.contacts.delete']);
-              Route::post('default', ['uses' => 'ContactController@updateDefault', 'as' => 'customers.contacts.updateDefault']);
-          });
-      });
+            Route::group(['prefix' => '{clientId}/contacts'], function () {
+                Route::get('create', ['uses' => 'ContactController@create', 'as' => 'customers.contacts.create']);
+                Route::post('create', ['uses' => 'ContactController@store', 'as' => 'customers.contacts.store']);
+                Route::get('edit/{contactId}', ['uses' => 'ContactController@edit', 'as' => 'customers.contacts.edit']);
+                Route::post('edit/{contactId}',
+                    ['uses' => 'ContactController@update', 'as' => 'customers.contacts.update']);
+                Route::post('delete', ['uses' => 'ContactController@delete', 'as' => 'customers.contacts.delete']);
+                Route::post('default',
+                    ['uses' => 'ContactController@updateDefault', 'as' => 'customers.contacts.updateDefault']);
+            });
+        });
 
 
-
-      Route::group(['prefix' => 'vendors', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
-          Route::post('pay', ['uses' => 'MerchantController@pay', 'as' => 'merchant.pay']);
-          Route::get('{driver}/{urlKey}/cancel',
-              ['uses' => 'MerchantController@cancelUrl', 'as' => 'merchant.cancelUrl']);
-          Route::get('{driver}/{urlKey}/return',
-              ['uses' => 'MerchantController@returnUrl', 'as' => 'merchant.returnUrl']);
-          Route::post('{driver}/{urlKey}/webhook',
-              ['uses' => 'MerchantController@webhookUrl', 'as' => 'merchant.webhookUrl']);
-      });
+        Route::group(['prefix' => 'vendors', 'namespace' => 'IP\Modules\Merchant\Controllers'], function () {
+            Route::post('pay', ['uses' => 'MerchantController@pay', 'as' => 'merchant.pay']);
+            Route::get('{driver}/{urlKey}/cancel',
+                ['uses' => 'MerchantController@cancelUrl', 'as' => 'merchant.cancelUrl']);
+            Route::get('{driver}/{urlKey}/return',
+                ['uses' => 'MerchantController@returnUrl', 'as' => 'merchant.returnUrl']);
+            Route::post('{driver}/{urlKey}/webhook',
+                ['uses' => 'MerchantController@webhookUrl', 'as' => 'merchant.webhookUrl']);
+        });
 
     });
-
-
 
 
     Route::group(['prefix' => 'notes', 'namespace' => 'IP\Modules\Notes\Controllers'], function () {
@@ -362,7 +386,6 @@ Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
     });
 
 
-
     Route::group(['prefix' => 'invoices'], function () {
     });
 
@@ -424,20 +447,8 @@ Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
     });
 
     Route::group(['prefix' => 'invoices'], function () {
-    }); 
+    });
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
@@ -482,7 +493,7 @@ Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
 
     Route::group(['prefix' => 'quote_item'], function () {
         Route::post('delete', ['uses' => 'HomeController@delete', 'as' => 'quoteItem.delete']);
-    }); 
+    });
 });
 
 Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
@@ -529,52 +540,52 @@ Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
 
 
 Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
-  Route::group(['prefix' => 'recurring_invoices'], function () {
-      Route::get('/', ['uses' => 'HomeController@index', 'as' => 'recurringInvoices.index']);
-      Route::get('create',
-          ['uses' => 'HomeController@create', 'as' => 'recurringInvoices.create']);
-      Route::post('create',
-          ['uses' => 'HomeController@store', 'as' => 'recurringInvoices.store']);
-      Route::get('{id}/edit',
-          ['uses' => 'HomeController@edit', 'as' => 'recurringInvoices.edit']);
-      Route::post('{id}/edit',
-          ['uses' => 'HomeController@update', 'as' => 'recurringInvoices.update']);
-      Route::get('{id}/delete',
-          ['uses' => 'HomeController@delete', 'as' => 'recurringInvoices.delete']);
+    Route::group(['prefix' => 'recurring_invoices'], function () {
+        Route::get('/', ['uses' => 'HomeController@index', 'as' => 'recurringInvoices.index']);
+        Route::get('create',
+            ['uses' => 'HomeController@create', 'as' => 'recurringInvoices.create']);
+        Route::post('create',
+            ['uses' => 'HomeController@store', 'as' => 'recurringInvoices.store']);
+        Route::get('{id}/edit',
+            ['uses' => 'HomeController@edit', 'as' => 'recurringInvoices.edit']);
+        Route::post('{id}/edit',
+            ['uses' => 'HomeController@update', 'as' => 'recurringInvoices.update']);
+        Route::get('{id}/delete',
+            ['uses' => 'HomeController@delete', 'as' => 'recurringInvoices.delete']);
 
-      Route::get('{id}/edit/refresh',
-          ['uses' => 'HomeController@refreshEdit', 'as' => 'recurringInvoiceEdit.refreshEdit']);
-      Route::post('edit/refresh_to',
-          ['uses' => 'HomeController@refreshTo', 'as' => 'recurringInvoiceEdit.refreshTo']);
-      Route::post('edit/refresh_from',
-          ['uses' => 'HomeController@refreshFrom', 'as' => 'recurringInvoiceEdit.refreshFrom']);
-      Route::post('edit/refresh_totals', [
-          'uses' => 'HomeController@refreshTotals',
-          'as' => 'recurringInvoiceEdit.refreshTotals'
-      ]);
-      Route::post('edit/update_client',
-          ['uses' => 'HomeController@updateClient', 'as' => 'recurringInvoiceEdit.updateClient']);
-      Route::post('edit/update_company_profile', [
-          'uses' => 'HomeController@updateCompanyProfile',
-          'as' => 'recurringInvoiceEdit.updateCompanyProfile'
-      ]);
-      Route::post('recalculate', [
-          'uses' => 'HomeController@recalculate',
-          'as' => 'recurringInvoices.recalculate'
-      ]);
-  });
+        Route::get('{id}/edit/refresh',
+            ['uses' => 'HomeController@refreshEdit', 'as' => 'recurringInvoiceEdit.refreshEdit']);
+        Route::post('edit/refresh_to',
+            ['uses' => 'HomeController@refreshTo', 'as' => 'recurringInvoiceEdit.refreshTo']);
+        Route::post('edit/refresh_from',
+            ['uses' => 'HomeController@refreshFrom', 'as' => 'recurringInvoiceEdit.refreshFrom']);
+        Route::post('edit/refresh_totals', [
+            'uses' => 'HomeController@refreshTotals',
+            'as' => 'recurringInvoiceEdit.refreshTotals'
+        ]);
+        Route::post('edit/update_client',
+            ['uses' => 'HomeController@updateClient', 'as' => 'recurringInvoiceEdit.updateClient']);
+        Route::post('edit/update_company_profile', [
+            'uses' => 'HomeController@updateCompanyProfile',
+            'as' => 'recurringInvoiceEdit.updateCompanyProfile'
+        ]);
+        Route::post('recalculate', [
+            'uses' => 'HomeController@recalculate',
+            'as' => 'recurringInvoices.recalculate'
+        ]);
+    });
 
-  Route::group(['prefix' => 'recurring_invoice_copy'], function () {
-      Route::post('create',
-          ['uses' => 'HomeController@create', 'as' => 'recurringInvoiceCopy.create']);
-      Route::post('store',
-          ['uses' => 'HomeController@store', 'as' => 'recurringInvoiceCopy.store']);
-  });
+    Route::group(['prefix' => 'recurring_invoice_copy'], function () {
+        Route::post('create',
+            ['uses' => 'HomeController@create', 'as' => 'recurringInvoiceCopy.create']);
+        Route::post('store',
+            ['uses' => 'HomeController@store', 'as' => 'recurringInvoiceCopy.store']);
+    });
 
-  Route::group(['prefix' => 'recurring_invoice_item'], function () {
-      Route::post('delete',
-          ['uses' => 'HomeController@delete', 'as' => 'recurringInvoiceItem.delete']);
-  });
+    Route::group(['prefix' => 'recurring_invoice_item'], function () {
+        Route::post('delete',
+            ['uses' => 'HomeController@delete', 'as' => 'recurringInvoiceItem.delete']);
+    });
 });
 
 Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
@@ -595,31 +606,31 @@ Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
 });
 
 
-
 Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {
-  Route::group([
-      'middleware' => ['web'],
-      'prefix' => 'expenses',
-      'namespace' => 'IP\Modules\Expenses\Controllers'
-  ], function () {
-      Route::get('/', ['uses' => 'ExpenseController@index', 'as' => 'expenses.index']);
-      Route::get('create', ['uses' => 'ExpenseCreateController@create', 'as' => 'expenses.create']);
-      Route::post('create', ['uses' => 'ExpenseCreateController@store', 'as' => 'expenses.store']);
-      Route::get('{id}/edit', ['uses' => 'ExpenseEditController@edit', 'as' => 'expenses.edit']);
-      Route::post('{id}/edit', ['uses' => 'ExpenseEditController@update', 'as' => 'expenses.update']);
-      Route::get('{id}/delete', ['uses' => 'ExpenseController@delete', 'as' => 'expenses.delete']);
+    Route::group([
+        'middleware' => ['web'],
+        'prefix' => 'expenses',
+        'namespace' => 'IP\Modules\Expenses\Controllers'
+    ], function () {
+        Route::get('/', ['uses' => 'ExpenseController@index', 'as' => 'expenses.index']);
+        Route::get('create', ['uses' => 'ExpenseCreateController@create', 'as' => 'expenses.create']);
+        Route::post('create', ['uses' => 'ExpenseCreateController@store', 'as' => 'expenses.store']);
+        Route::get('{id}/edit', ['uses' => 'ExpenseEditController@edit', 'as' => 'expenses.edit']);
+        Route::post('{id}/edit', ['uses' => 'ExpenseEditController@update', 'as' => 'expenses.update']);
+        Route::get('{id}/delete', ['uses' => 'ExpenseController@delete', 'as' => 'expenses.delete']);
 
-      Route::group(['prefix' => 'bill'], function () {
-          Route::post('create', ['uses' => 'ExpenseBillController@create', 'as' => 'expenseBill.create']);
-          Route::post('store', ['uses' => 'ExpenseBillController@store', 'as' => 'expenseBill.store']);
-      });
+        Route::group(['prefix' => 'bill'], function () {
+            Route::post('create', ['uses' => 'ExpenseBillController@create', 'as' => 'expenseBill.create']);
+            Route::post('store', ['uses' => 'ExpenseBillController@store', 'as' => 'expenseBill.store']);
+        });
 
-      Route::get('lookup/category',
-          ['uses' => 'ExpenseLookupController@lookupCategory', 'as' => 'expenses.lookupCategory']);
-      Route::get('lookup/vendor', ['uses' => 'ExpenseLookupController@lookupVendor', 'as' => 'expenses.lookupVendor']);
+        Route::get('lookup/category',
+            ['uses' => 'ExpenseLookupController@lookupCategory', 'as' => 'expenses.lookupCategory']);
+        Route::get('lookup/vendor',
+            ['uses' => 'ExpenseLookupController@lookupVendor', 'as' => 'expenses.lookupVendor']);
 
-      Route::post('bulk/delete', ['uses' => 'ExpenseController@bulkDelete', 'as' => 'expenses.bulk.delete']);
-  });
+        Route::post('bulk/delete', ['uses' => 'ExpenseController@bulkDelete', 'as' => 'expenses.bulk.delete']);
+    });
 });
 
 Route::group(['prefix' => 'systemcp', 'middleware' => ['web']], function () {

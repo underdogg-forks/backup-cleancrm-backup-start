@@ -9,7 +9,7 @@
     </section>
 
     <div class="row">
-    EmptyRow
+        EmptyRow
     </div>
 
 @stop

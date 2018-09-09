@@ -13,7 +13,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('quotes.index', ['status' => config('cleancrm.quoteStatusFilter')]) }}">
+                <a class="nav-link"
+                   href="{{ route('quotes.index', ['status' => config('cleancrm.quoteStatusFilter')]) }}">
                     <i class="nav-icon fa fa-file-text-o"></i> <span>@lang('cleancrm.quotes')</span>
                 </a>
             </li>

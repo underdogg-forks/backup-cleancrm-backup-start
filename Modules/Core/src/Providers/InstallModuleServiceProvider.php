@@ -2,7 +2,6 @@
 
 use Illuminate\Support\ServiceProvider;
 use Schema;
-use Illuminate\Database\Schema\Blueprint;
 
 class InstallModuleServiceProvider extends ServiceProvider
 {
@@ -22,16 +21,6 @@ class InstallModuleServiceProvider extends ServiceProvider
         });
     }
 
-    /**
-     * Register the application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-
-    }
-
     private function booted()
     {
         //Resolve your module dependency
@@ -42,5 +31,15 @@ class InstallModuleServiceProvider extends ServiceProvider
     private function createSchema()
     {
         \Artisan::call('module:migrate', ['alias' => $this->moduleAlias]);
+    }
+
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+
     }
 }
